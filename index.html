@@ -2,9 +2,9 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
 
-<title>Daily — Discover Your Next Album</title>
+<title>Daily — Discover Albums</title>
 
 <style>
 
@@ -26,13 +26,13 @@ body {
 
     background:
         radial-gradient(
-            circle at 50% -20%,
-            #17301f 0%,
-            #090b0a 42%,
+            circle at 50% -15%,
+            #183621 0,
+            #0b0d0b 38%,
             #070807 100%
         );
 
-    color: #ffffff;
+    color: white;
 
     font-family:
         Inter,
@@ -43,14 +43,16 @@ body {
         sans-serif;
 }
 
-button,
-select {
-    font: inherit;
-}
-
 button {
+    font: inherit;
     cursor: pointer;
 }
+
+button:disabled {
+    cursor: not-allowed;
+    opacity: .45;
+}
+
 
 /* =========================================================
    HEADER
@@ -59,17 +61,17 @@ button {
 header {
     position: sticky;
     top: 0;
-    z-index: 1000;
+    z-index: 100;
 
-    height: 70px;
+    height: 68px;
 
     display: flex;
     align-items: center;
     justify-content: space-between;
 
-    padding: 0 32px;
+    padding: 0 30px;
 
-    background: rgba(7, 8, 8, 0.88);
+    background: rgba(7,8,7,.86);
 
     backdrop-filter: blur(18px);
 
@@ -91,45 +93,45 @@ header {
 .header-right {
     display: flex;
     align-items: center;
-    gap: 14px;
+    gap: 12px;
 }
 
 .header-user {
-    color: #999;
-
-    font-size: 14px;
+    color: #777;
+    font-size: 13px;
 }
 
-.header-button {
-    border: none;
+.header-login {
+    border: 0;
+
+    padding: 9px 15px;
+
+    border-radius: 999px;
 
     background: #1ed760;
     color: #000;
 
-    padding: 10px 17px;
-
-    border-radius: 999px;
-
-    font-weight: 800;
+    font-weight: 850;
 }
 
-.header-button:hover {
-    background: #39e875;
-}
 
 /* =========================================================
    MAIN
 ========================================================= */
 
 main {
-    width: min(1120px, calc(100% - 32px));
+    width:
+        min(
+            1100px,
+            calc(100% - 30px)
+        );
 
     margin: auto;
 
     padding:
-        55px 0
-        100px;
+        55px 0 100px;
 }
+
 
 /* =========================================================
    HERO
@@ -138,14 +140,14 @@ main {
 .hero {
     text-align: center;
 
-    margin-bottom: 42px;
+    margin-bottom: 40px;
 }
 
 .hero h1 {
     margin: 0;
 
     font-size:
-        clamp(48px, 8vw, 86px);
+        clamp(52px,8vw,88px);
 
     line-height: .9;
 
@@ -157,18 +159,18 @@ main {
 }
 
 .hero p {
+    max-width: 650px;
+
     margin:
-        20px auto
-        0;
+        20px auto 0;
 
-    max-width: 620px;
-
-    color: #888;
+    color: #858585;
 
     font-size: 17px;
 
     line-height: 1.6;
 }
+
 
 /* =========================================================
    ERROR
@@ -177,39 +179,38 @@ main {
 .error {
     display: none;
 
-    margin-bottom: 22px;
+    margin-bottom: 20px;
 
-    padding: 16px 18px;
-
-    background: #301719;
-
-    border:
-        1px solid #672a2e;
+    padding: 15px 17px;
 
     border-radius: 13px;
 
-    color: #ffafb3;
+    background: #32191b;
 
-    line-height: 1.55;
+    border:
+        1px solid #6d3035;
+
+    color: #ffb8bd;
+
+    line-height: 1.5;
 }
+
 
 /* =========================================================
    LOGIN
 ========================================================= */
 
-.login-box {
-    max-width: 680px;
+.login {
+    max-width: 650px;
 
-    margin:
-        0 auto;
+    margin: auto;
 
-    padding:
-        60px 30px;
+    padding: 55px 30px;
 
     text-align: center;
 
     background:
-        rgba(18,20,19,.95);
+        rgba(17,20,18,.95);
 
     border:
         1px solid rgba(255,255,255,.08);
@@ -217,30 +218,28 @@ main {
     border-radius: 25px;
 }
 
-.login-box h2 {
-    margin:
-        0 0 12px;
+.login h2 {
+    margin: 0 0 10px;
 
-    font-size: 30px;
+    font-size: 31px;
 }
 
-.login-box p {
-    max-width: 520px;
+.login p {
+    max-width: 500px;
 
     margin:
-        0 auto
-        25px;
+        0 auto 25px;
 
-    color: #888;
+    color: #777;
 
     line-height: 1.6;
 }
 
-.login-button {
-    border: none;
+.green-button {
+    border: 0;
 
     padding:
-        14px 25px;
+        14px 24px;
 
     border-radius: 999px;
 
@@ -249,13 +248,8 @@ main {
     color: #000;
 
     font-weight: 900;
-
-    font-size: 15px;
 }
 
-.login-button:hover {
-    background: #3be978;
-}
 
 /* =========================================================
    APP
@@ -265,6 +259,7 @@ main {
     display: none;
 }
 
+
 /* =========================================================
    PROFILE
 ========================================================= */
@@ -273,121 +268,113 @@ main {
     display: flex;
     align-items: center;
 
-    gap: 13px;
+    gap: 12px;
 
-    margin-bottom: 24px;
+    margin-bottom: 25px;
 
-    padding: 12px 15px;
+    padding: 12px 14px;
 
-    background: rgba(18,20,19,.9);
+    background: #111412;
 
     border:
-        1px solid rgba(255,255,255,.08);
+        1px solid rgba(255,255,255,.07);
 
-    border-radius: 17px;
+    border-radius: 16px;
 }
 
 .profile-image {
     width: 45px;
     height: 45px;
 
-    border-radius: 50%;
-
     object-fit: cover;
+
+    border-radius: 50%;
 
     background: #222;
 }
 
 .profile-name {
-    font-weight: 800;
+    font-weight: 850;
 }
 
-.profile-status {
+.profile-sub {
     margin-top: 3px;
+
+    color: #666;
+
+    font-size: 11px;
+}
+
+.disconnect {
+    margin-left: auto;
+
+    border:
+        1px solid #333;
+
+    background: #1b1d1c;
+
+    color: #999;
+
+    padding: 8px 11px;
+
+    border-radius: 9px;
+}
+
+
+/* =========================================================
+   JOURNEY HEADER
+========================================================= */
+
+.journey-head {
+    display: flex;
+    align-items: end;
+    justify-content: space-between;
+
+    margin-bottom: 12px;
+}
+
+.journey-head h2 {
+    margin: 0;
+
+    font-size: 26px;
+}
+
+.journey-head p {
+    margin: 5px 0 0;
 
     color: #666;
 
     font-size: 12px;
 }
 
-.disconnect {
-    margin-left: auto;
-
-    padding:
-        8px 12px;
-
-    border:
-        1px solid #333;
-
-    border-radius: 9px;
-
-    background: #1c1d1c;
-
-    color: #aaa;
-}
-
-/* =========================================================
-   JOURNEY HEADER
-========================================================= */
-
-.journey-header {
-    display: flex;
-
-    align-items: end;
-    justify-content: space-between;
-
-    gap: 20px;
-
-    margin-bottom: 15px;
-}
-
-.journey-title h2 {
-    margin: 0;
-
-    font-size: 27px;
-
-    letter-spacing: -.7px;
-}
-
-.journey-title p {
-    margin:
-        5px 0 0;
-
-    color: #777;
-
-    font-size: 13px;
-}
-
 .journey-count {
     color: #1ed760;
 
     font-weight: 900;
-
-    white-space: nowrap;
 }
 
 .progress {
     height: 8px;
 
-    margin-bottom: 25px;
+    margin-bottom: 23px;
 
     overflow: hidden;
 
-    background: #202320;
+    border-radius: 999px;
 
-    border-radius: 99px;
+    background: #202320;
 }
 
-.progress-fill {
-    height: 100%;
-
+.progress-bar {
     width: 0%;
+    height: 100%;
 
     background: #1ed760;
 
     transition:
-        width .45s ease;
+        width .35s ease;
 }
+
 
 /* =========================================================
    ALBUM CARD
@@ -397,28 +384,27 @@ main {
     display: grid;
 
     grid-template-columns:
-        minmax(300px, 440px)
+        minmax(300px,440px)
         1fr;
 
-    gap: 48px;
+    gap: 45px;
 
-    padding: 30px;
+    padding: 28px;
 
     background:
         linear-gradient(
             145deg,
-            rgba(22,25,23,.98),
-            rgba(13,15,14,.98)
+            #171a18,
+            #0d0f0e
         );
 
     border:
         1px solid rgba(255,255,255,.09);
 
-    border-radius: 27px;
+    border-radius: 26px;
 
     box-shadow:
-        0 35px 100px
-        rgba(0,0,0,.4);
+        0 30px 80px rgba(0,0,0,.4);
 }
 
 .album-cover {
@@ -431,39 +417,33 @@ main {
     border-radius: 18px;
 
     background: #202220;
-
-    box-shadow:
-        0 20px 50px
-        rgba(0,0,0,.45);
 }
 
 .album-info {
     display: flex;
-
     flex-direction: column;
 
     justify-content: center;
 }
 
-.daily-label {
+.label {
     color: #1ed760;
 
-    font-size: 12px;
+    font-size: 11px;
 
     font-weight: 900;
 
     letter-spacing: 2px;
 
     text-transform: uppercase;
-
-    margin-bottom: 12px;
 }
 
 .album-title {
-    margin: 0;
+    margin:
+        11px 0 0;
 
     font-size:
-        clamp(38px, 5vw, 65px);
+        clamp(38px,5vw,65px);
 
     line-height: .95;
 
@@ -475,17 +455,18 @@ main {
 
     color: #aaa;
 
-    font-size: 22px;
+    font-size: 21px;
 }
 
 .album-description {
     margin:
-        22px 0;
+        20px 0;
 
-    color: #888;
+    color: #818181;
 
-    line-height: 1.65;
+    line-height: 1.6;
 }
+
 
 /* =========================================================
    TAGS
@@ -493,17 +474,14 @@ main {
 
 .tags {
     display: flex;
-
     flex-wrap: wrap;
 
-    gap: 8px;
-
-    margin-bottom: 5px;
+    gap: 7px;
 }
 
 .tag {
     padding:
-        7px 11px;
+        6px 10px;
 
     background: #232623;
 
@@ -514,8 +492,9 @@ main {
 
     color: #aaa;
 
-    font-size: 12px;
+    font-size: 11px;
 }
+
 
 /* =========================================================
    BUTTONS
@@ -523,116 +502,104 @@ main {
 
 .buttons {
     display: flex;
-
     flex-wrap: wrap;
 
-    gap: 9px;
+    gap: 8px;
 
     margin-top: 8px;
 }
 
 .btn {
-    border: none;
+    border: 0;
 
     padding:
-        13px 16px;
+        12px 15px;
 
-    border-radius: 11px;
+    border-radius: 10px;
 
-    font-size: 14px;
+    font-size: 13px;
 
     font-weight: 850;
-
-    transition:
-        transform .15s,
-        opacity .15s;
 }
 
-.btn:hover:not(:disabled) {
-    transform:
-        translateY(-2px);
-}
-
-.btn:disabled {
-    opacity: .35;
-
-    cursor: not-allowed;
-}
-
-.spotify-btn {
+.spotify {
     background: #1ed760;
-
     color: #000;
 }
 
-.finish-btn {
+.finish {
     background: #7c3aed;
-
-    color: #fff;
+    color: white;
 }
 
-.reroll-btn {
-    background: #272a27;
-
+.reroll {
+    background: #262926;
     color: #ddd;
 
     border:
-        1px solid #363936;
+        1px solid #373a37;
 }
 
-.genre-btn {
-    background: #202a23;
-
-    color: #c8e8d0;
+.genre {
+    background: #1e2b22;
+    color: #bde8c8;
 
     border:
-        1px solid #355440;
+        1px solid #36513d;
+}
+
+.reset {
+    background: #292222;
+    color: #ffb6b6;
+
+    border:
+        1px solid #503737;
 }
 
 .reroll-info {
-    margin-top: 12px;
+    margin-top: 10px;
 
-    color: #666;
+    color: #5e5e5e;
 
-    font-size: 12px;
+    font-size: 11px;
 }
 
+
 /* =========================================================
-   GENRE PANEL
+   GENRE
 ========================================================= */
 
 .genre-panel {
     display: none;
 
-    margin-top: 18px;
+    margin-top: 15px;
 
-    padding: 18px;
+    padding: 15px;
 
-    background: #111412;
+    background: #101311;
 
     border:
-        1px solid #2a302c;
+        1px solid #29312b;
 
-    border-radius: 15px;
+    border-radius: 14px;
 }
 
-.genre-panel.show {
+.genre-panel.open {
     display: block;
 }
 
-.genre-panel-title {
+.genre-title {
     margin-bottom: 10px;
 
-    color: #999;
+    color: #888;
 
-    font-size: 13px;
+    font-size: 12px;
 
     font-weight: 800;
 }
 
 .genre-grid {
     display: flex;
-
     flex-wrap: wrap;
 
     gap: 7px;
@@ -642,20 +609,20 @@ main {
     border:
         1px solid #303630;
 
-    background: #1c201d;
+    background: #1b1f1c;
 
     color: #aaa;
 
     padding:
-        8px 12px;
+        8px 11px;
 
     border-radius: 999px;
 
-    font-size: 12px;
+    font-size: 11px;
 }
 
-.genre-choice:hover,
-.genre-choice.active {
+.genre-choice.active,
+.genre-choice:hover {
     background: #1ed760;
 
     border-color: #1ed760;
@@ -663,146 +630,160 @@ main {
     color: #000;
 }
 
-/* =========================================================
-   COMPLETED
-========================================================= */
-
-.section {
-    margin-top: 42px;
-}
-
-.section-heading {
-    display: flex;
-
-    justify-content: space-between;
-
-    align-items: center;
-
-    margin-bottom: 15px;
-}
-
-.section-heading h2 {
-    margin: 0;
-
-    font-size: 21px;
-}
-
-.section-heading span {
-    color: #777;
-
-    font-size: 13px;
-}
-
-.completed-grid {
-    display: grid;
-
-    grid-template-columns:
-        repeat(
-            auto-fill,
-            minmax(165px, 1fr)
-        );
-
-    gap: 15px;
-}
-
-.completed-card {
-    overflow: hidden;
-
-    background: #111311;
-
-    border:
-        1px solid rgba(255,255,255,.08);
-
-    border-radius: 15px;
-
-    transition:
-        transform .2s;
-}
-
-.completed-card:hover {
-    transform:
-        translateY(-4px);
-}
-
-.completed-card img {
-    display: block;
-
-    width: 100%;
-
-    aspect-ratio: 1;
-
-    object-fit: cover;
-}
-
-.completed-info {
-    padding: 12px;
-}
-
-.completed-name {
-    display: block;
-
-    overflow: hidden;
-
-    white-space: nowrap;
-
-    text-overflow: ellipsis;
-
-    font-weight: 800;
-
-    font-size: 13px;
-}
-
-.completed-artist {
-    display: block;
-
-    margin-top: 4px;
-
-    overflow: hidden;
-
-    white-space: nowrap;
-
-    text-overflow: ellipsis;
-
-    color: #666;
-
-    font-size: 11px;
-}
 
 /* =========================================================
-   FINISHED JOURNEY
+   FINISHED
 ========================================================= */
 
-.finished-journey {
+.finished {
     display: none;
 
-    padding: 45px 25px;
+    padding:
+        50px 25px;
 
     text-align: center;
 
     background: #111512;
 
     border:
-        1px solid #29352c;
+        1px solid #29372d;
 
     border-radius: 22px;
 }
 
-.finished-journey.show {
+.finished.show {
     display: block;
 }
 
-.finished-journey h2 {
-    margin:
-        0 0 10px;
+.finished h2 {
+    margin: 0 0 10px;
 
-    font-size: 31px;
+    font-size: 32px;
 }
 
-.finished-journey p {
+.finished p {
     color: #777;
 
     line-height: 1.6;
 }
+
+
+/* =========================================================
+   HISTORY
+========================================================= */
+
+.history {
+    margin-top: 42px;
+}
+
+.history-head {
+    display: flex;
+
+    justify-content: space-between;
+
+    margin-bottom: 15px;
+}
+
+.history-head h2 {
+    margin: 0;
+
+    font-size: 21px;
+}
+
+.history-head span {
+    color: #666;
+
+    font-size: 12px;
+}
+
+.history-grid {
+    display: grid;
+
+    grid-template-columns:
+        repeat(
+            auto-fill,
+            minmax(155px,1fr)
+        );
+
+    gap: 14px;
+}
+
+.history-card {
+    overflow: hidden;
+
+    background: #111311;
+
+    border:
+        1px solid rgba(255,255,255,.07);
+
+    border-radius: 14px;
+
+    transition:
+        transform .2s;
+}
+
+.history-card:hover {
+    transform:
+        translateY(-3px);
+}
+
+.history-card img {
+    width: 100%;
+
+    aspect-ratio: 1;
+
+    display: block;
+
+    object-fit: cover;
+}
+
+.history-info {
+    padding: 11px;
+}
+
+.history-name {
+    display: block;
+
+    overflow: hidden;
+
+    text-overflow: ellipsis;
+
+    white-space: nowrap;
+
+    font-size: 12px;
+
+    font-weight: 800;
+}
+
+.history-artist {
+    display: block;
+
+    margin-top: 4px;
+
+    overflow: hidden;
+
+    text-overflow: ellipsis;
+
+    white-space: nowrap;
+
+    color: #666;
+
+    font-size: 10px;
+}
+
+
+/* =========================================================
+   RESET EXPLANATION
+========================================================= */
+
+.reset-note {
+    margin-top: 10px;
+
+    color: #555;
+
+    font-size: 11px;
+}
+
 
 /* =========================================================
    TOAST
@@ -814,15 +795,15 @@ main {
     left: 50%;
     bottom: 25px;
 
-    z-index: 9999;
+    z-index: 500;
 
     transform:
-        translate(-50%, 100px);
+        translate(-50%,100px);
 
     opacity: 0;
 
     padding:
-        13px 18px;
+        13px 17px;
 
     background: #222622;
 
@@ -833,25 +814,25 @@ main {
 
     color: #ddd;
 
-    transition:
-        .25s;
+    transition: .25s;
 }
 
 .toast.show {
-    opacity: 1;
-
     transform:
-        translate(-50%, 0);
+        translate(-50%,0);
+
+    opacity: 1;
 }
+
 
 /* =========================================================
    MOBILE
 ========================================================= */
 
-@media(max-width: 850px) {
+@media(max-width:850px) {
 
     header {
-        padding: 0 17px;
+        padding: 0 15px;
     }
 
     .header-user {
@@ -860,7 +841,7 @@ main {
 
     main {
         width:
-            calc(100% - 22px);
+            calc(100% - 20px);
 
         padding-top: 35px;
     }
@@ -872,9 +853,9 @@ main {
     .album-card {
         grid-template-columns: 1fr;
 
-        gap: 30px;
+        padding: 19px;
 
-        padding: 20px;
+        gap: 28px;
     }
 
     .album-info {
@@ -886,7 +867,7 @@ main {
         justify-content: center;
     }
 
-    .journey-header {
+    .journey-head {
         align-items: start;
     }
 }
@@ -894,7 +875,9 @@ main {
 </style>
 </head>
 
+
 <body>
+
 
 <header>
 
@@ -911,9 +894,9 @@ main {
         </span>
 
         <button
-            class="header-button"
+            class="header-login"
             id="headerLogin"
-            onclick="loginSpotify()">
+            onclick="login()">
 
             Connect Spotify
 
@@ -926,288 +909,301 @@ main {
 
 <main>
 
-    <section class="hero">
 
-        <h1>
-            Your album.<br>
-            Every <span>day.</span>
-        </h1>
+<section class="hero">
 
-        <p>
-            Daily gives you three albums to discover.
-            Finish one to unlock the next.
-            No endless scrolling. No repeats.
-        </p>
+    <h1>
+        Your album.<br>
+        Every <span>day.</span>
+    </h1>
+
+    <p>
+        Daily gives you three albums to discover,
+        based on your Spotify taste with a little
+        randomness mixed in.
+    </p>
+
+</section>
+
+
+<div
+    class="error"
+    id="error">
+</div>
+
+
+<section
+    class="login"
+    id="loginBox">
+
+    <h2>
+        Connect Spotify
+    </h2>
+
+    <p>
+        Daily uses your listening history to find
+        albums you might love, while making sure
+        you don't keep getting the same albums.
+    </p>
+
+    <button
+        class="green-button"
+        onclick="login()">
+
+        Connect Spotify
+
+    </button>
+
+</section>
+
+
+<div id="app">
+
+
+    <!-- PROFILE -->
+
+    <div class="profile">
+
+        <img
+            id="profileImage"
+            class="profile-image"
+            alt="">
+
+        <div>
+
+            <div
+                class="profile-name"
+                id="profileName">
+            </div>
+
+            <div class="profile-sub">
+                Connected to Spotify
+            </div>
+
+        </div>
+
+        <button
+            class="disconnect"
+            onclick="disconnect()">
+
+            Disconnect
+
+        </button>
+
+    </div>
+
+
+    <!-- JOURNEY -->
+
+    <div class="journey-head">
+
+        <div>
+
+            <h2>
+                Daily Journey
+            </h2>
+
+            <p>
+                Finish all three albums to complete this journey.
+            </p>
+
+        </div>
+
+        <div
+            class="journey-count"
+            id="journeyCount">
+
+            0 / 3
+
+        </div>
+
+    </div>
+
+
+    <div class="progress">
+
+        <div
+            class="progress-bar"
+            id="progressBar">
+        </div>
+
+    </div>
+
+
+    <!-- ALBUM -->
+
+    <section
+        class="album-card"
+        id="albumCard">
+
+        <img
+            id="albumCover"
+            class="album-cover"
+            alt="Album artwork">
+
+
+        <div class="album-info">
+
+            <div class="label">
+                Daily Album
+            </div>
+
+            <h2
+                class="album-title"
+                id="albumTitle">
+
+                Finding something...
+
+            </h2>
+
+            <div
+                class="album-artist"
+                id="albumArtist">
+            </div>
+
+            <div
+                class="tags"
+                id="albumTags">
+            </div>
+
+            <div
+                class="album-description"
+                id="albumDescription">
+
+                Daily is looking through Spotify.
+
+            </div>
+
+
+            <div class="buttons">
+
+                <button
+                    class="btn spotify"
+                    id="spotifyButton">
+
+                    Open Spotify ↗
+
+                </button>
+
+                <button
+                    class="btn finish"
+                    id="finishButton">
+
+                    ✓ Finish Album
+
+                </button>
+
+                <button
+                    class="btn reroll"
+                    id="rerollButton">
+
+                    ↻ Reroll
+
+                </button>
+
+                <button
+                    class="btn genre"
+                    id="genreButton">
+
+                    ♫ Genre
+
+                </button>
+
+                <button
+                    class="btn reset"
+                    id="resetButton">
+
+                    ↻ New Daily
+
+                </button>
+
+            </div>
+
+
+            <div
+                class="reroll-info"
+                id="rerollInfo">
+            </div>
+
+            <div class="reset-note">
+                New Daily starts another 3-album journey without
+                deleting your no-repeat history.
+            </div>
+
+
+            <!-- GENRES -->
+
+            <div
+                class="genre-panel"
+                id="genrePanel">
+
+                <div class="genre-title">
+                    Pick a genre
+                </div>
+
+                <div
+                    class="genre-grid"
+                    id="genreGrid">
+                </div>
+
+            </div>
+
+        </div>
 
     </section>
 
 
-    <div
-        class="error"
-        id="error">
-    </div>
-
-
-    <!-- LOGIN -->
+    <!-- FINISHED -->
 
     <section
-        class="login-box"
-        id="loginBox">
+        class="finished"
+        id="finished">
 
         <h2>
-            Connect your Spotify
+            Journey Complete 🎉
         </h2>
 
         <p>
-            Daily uses your Spotify listening history
-            to find albums that fit your taste,
-            with enough randomness to keep things
-            interesting.
+            You finished all three albums.
+            Start another Daily whenever you want.
         </p>
 
         <button
-            class="login-button"
-            onclick="loginSpotify()">
+            class="green-button"
+            onclick="resetDaily()">
 
-            Connect Spotify
+            Start Another Daily
 
         </button>
 
     </section>
 
 
-    <!-- APP -->
+    <!-- HISTORY -->
 
-    <div id="app">
+    <section class="history">
 
-        <!-- PROFILE -->
-
-        <div class="profile">
-
-            <img
-                class="profile-image"
-                id="profileImage"
-                alt="">
-
-            <div>
-
-                <div
-                    class="profile-name"
-                    id="profileName">
-                </div>
-
-                <div
-                    class="profile-status">
-                    Connected to Spotify
-                </div>
-
-            </div>
-
-            <button
-                class="disconnect"
-                onclick="disconnect()">
-
-                Disconnect
-
-            </button>
-
-        </div>
-
-
-        <!-- JOURNEY -->
-
-        <div class="journey-header">
-
-            <div class="journey-title">
-
-                <h2>
-                    Daily Journey
-                </h2>
-
-                <p>
-                    Finish all 3 albums to complete today's journey.
-                </p>
-
-            </div>
-
-            <div
-                class="journey-count"
-                id="journeyCount">
-
-                0 / 3
-
-            </div>
-
-        </div>
-
-
-        <div class="progress">
-
-            <div
-                class="progress-fill"
-                id="progressFill">
-            </div>
-
-        </div>
-
-
-        <!-- ALBUM -->
-
-        <section
-            class="album-card"
-            id="albumCard">
-
-            <img
-                class="album-cover"
-                id="albumCover"
-                src=""
-                alt="Album artwork">
-
-
-            <div class="album-info">
-
-                <div class="daily-label">
-                    Today's Daily
-                </div>
-
-                <h2
-                    class="album-title"
-                    id="albumTitle">
-
-                    Finding your album...
-
-                </h2>
-
-                <div
-                    class="album-artist"
-                    id="albumArtist">
-                </div>
-
-                <div
-                    class="tags"
-                    id="albumTags">
-                </div>
-
-                <div
-                    class="album-description"
-                    id="albumDescription">
-
-                    Daily is finding something
-                    for you.
-
-                </div>
-
-
-                <div class="buttons">
-
-                    <button
-                        class="btn spotify-btn"
-                        id="spotifyButton">
-
-                        Open in Spotify ↗
-
-                    </button>
-
-
-                    <button
-                        class="btn finish-btn"
-                        id="finishButton">
-
-                        ✓ Finish Album
-
-                    </button>
-
-
-                    <button
-                        class="btn reroll-btn"
-                        id="rerollButton">
-
-                        ↻ Reroll
-
-                    </button>
-
-
-                    <button
-                        class="btn genre-btn"
-                        id="genreButton">
-
-                        ♫ Pick Genre
-
-                    </button>
-
-                </div>
-
-
-                <div
-                    class="reroll-info"
-                    id="rerollInfo">
-                </div>
-
-
-                <!-- GENRES -->
-
-                <div
-                    class="genre-panel"
-                    id="genrePanel">
-
-                    <div class="genre-panel-title">
-                        Pick a genre for your next album
-                    </div>
-
-                    <div
-                        class="genre-grid"
-                        id="genreGrid">
-                    </div>
-
-                </div>
-
-            </div>
-
-        </section>
-
-
-        <!-- FINISHED -->
-
-        <section
-            class="finished-journey"
-            id="finishedJourney">
+        <div class="history-head">
 
             <h2>
-                Journey Complete 🎉
+                Discovery History
             </h2>
 
-            <p>
-                You finished all three albums.
-                Come back tomorrow for a new Daily Journey.
-            </p>
+            <span id="historyCount">
+                0 albums
+            </span>
 
-        </section>
+        </div>
+
+        <div
+            class="history-grid"
+            id="historyGrid">
+        </div>
+
+    </section>
 
 
-        <!-- HISTORY -->
-
-        <section class="section">
-
-            <div class="section-heading">
-
-                <h2>
-                    Your Journey History
-                </h2>
-
-                <span id="completedCount">
-                    0 albums
-                </span>
-
-            </div>
-
-            <div
-                class="completed-grid"
-                id="completedGrid">
-            </div>
-
-        </section>
-
-    </div>
+</div>
 
 </main>
 
@@ -1221,56 +1217,30 @@ main {
 <script>
 
 /* =========================================================
-   DAILY
-   Spotify-powered album discovery
-========================================================= */
-
-
-/* =========================================================
-   CONFIG
+   CONFIGURATION
 ========================================================= */
 
 const CLIENT_ID =
     "50b5323e6e4b47c7a3c8637244d6fd50";
 
-
-/*
-IMPORTANT:
-
-This MUST match Spotify Developer Dashboard
-EXACTLY.
-
-Spotify requires exact redirect URI matching.
-*/
-
 const REDIRECT_URI =
     "https://deadrabbitzstudios-ui.github.io/dailynow/";
 
+const API =
+    "https://api.spotify.com/v1";
 
-/*
-Spotify scopes.
+const JOURNEY_SIZE =
+    3;
 
-We intentionally don't request playback control
-because Daily doesn't need to control Spotify.
-*/
-
-const SCOPES = [
-    "user-read-private",
-    "user-top-read",
-    "user-read-recently-played"
-].join(" ");
+const MAX_REROLLS =
+    3;
 
 
 /* =========================================================
-   CONSTANTS
+   GENRES
 ========================================================= */
 
-const JOURNEY_LENGTH = 3;
-
-const WEEK_MS =
-    7 * 24 * 60 * 60 * 1000;
-
-const ALL_GENRES = [
+const GENRES = [
     "alternative",
     "ambient",
     "blues",
@@ -1298,37 +1268,140 @@ const ALL_GENRES = [
    STATE
 ========================================================= */
 
-let state =
-    JSON.parse(
-        localStorage.getItem(
+function defaultState() {
+
+    return {
+
+        accessToken: null,
+
+        refreshToken: null,
+
+        expiresAt: 0,
+
+        profile: null,
+
+        current: null,
+
+        completed: [],
+
+        usedIds: [],
+
+        journeyPosition: 0,
+
+        journeyNumber: 1,
+
+        rerollsUsed: 0,
+
+        weekStart:
+            getWeekStart(),
+
+        selectedGenre: null
+
+    };
+
+}
+
+
+/* =========================================================
+   SAFE STATE LOADING
+========================================================= */
+
+function loadState() {
+
+    try {
+
+        const raw =
+            localStorage.getItem(
+                "daily_state"
+            );
+
+        if (!raw) {
+
+            return defaultState();
+
+        }
+
+        const parsed =
+            JSON.parse(raw);
+
+        const base =
+            defaultState();
+
+
+        return {
+
+            ...base,
+
+            ...parsed,
+
+            completed:
+                Array.isArray(
+                    parsed.completed
+                )
+                ?
+                parsed.completed
+                :
+                [],
+
+            usedIds:
+                Array.isArray(
+                    parsed.usedIds
+                )
+                ?
+                parsed.usedIds
+                :
+                [],
+
+            journeyPosition:
+                Number.isInteger(
+                    parsed.journeyPosition
+                )
+                ?
+                parsed.journeyPosition
+                :
+                0,
+
+            journeyNumber:
+                Number.isInteger(
+                    parsed.journeyNumber
+                )
+                ?
+                parsed.journeyNumber
+                :
+                1,
+
+            rerollsUsed:
+                Number.isInteger(
+                    parsed.rerollsUsed
+                )
+                ?
+                parsed.rerollsUsed
+                :
+                0
+
+        };
+
+    }
+    catch(error) {
+
+        console.warn(
+            "Daily found broken saved data. Resetting local state.",
+            error
+        );
+
+        localStorage.removeItem(
             "daily_state"
-        ) || "{}"
-    );
+        );
+
+        return defaultState();
+
+    }
+
+}
 
 
-/*
-Create missing state properties.
-*/
-
-state.completed ||= [];
-
-state.usedIds ||= [];
-
-state.journey ||= [];
-
-state.journeyPosition ||=
-    0;
-
-state.current ||= null;
-
-state.weekStart ||=
-    getWeekStart();
-
-state.rerollsUsed ||=
-    0;
-
-state.selectedGenre ||=
-    null;
+let state =
+    loadState();
 
 
 /* =========================================================
@@ -1337,10 +1410,22 @@ state.selectedGenre ||=
 
 function save() {
 
-    localStorage.setItem(
-        "daily_state",
-        JSON.stringify(state)
-    );
+    try {
+
+        localStorage.setItem(
+            "daily_state",
+            JSON.stringify(state)
+        );
+
+    }
+    catch(error) {
+
+        console.error(
+            "Could not save Daily state:",
+            error
+        );
+
+    }
 
 }
 
@@ -1357,56 +1442,47 @@ function getWeekStart() {
     const day =
         now.getDay();
 
-    /*
-    Monday = start of week.
-    */
-
     const diff =
         day === 0
-        ? 6
-        : day - 1;
+        ?
+        6
+        :
+        day - 1;
 
     const monday =
         new Date(now);
 
     monday.setHours(
-        0, 0, 0, 0
+        0,
+        0,
+        0,
+        0
     );
 
     monday.setDate(
-        now.getDate() - diff
+        now.getDate()
+        -
+        diff
     );
 
-    return monday
-        .toISOString();
+    return monday.toISOString();
 
 }
 
 
-/*
-Reset rerolls when a new week begins.
-*/
-
 function checkWeek() {
 
     const current =
-        new Date(
-            getWeekStart()
-        );
-
-    const saved =
-        new Date(
-            state.weekStart
-        );
+        getWeekStart();
 
     if (
-        current.getTime()
+        state.weekStart
         !==
-        saved.getTime()
+        current
     ) {
 
         state.weekStart =
-            current.toISOString();
+            current;
 
         state.rerollsUsed =
             0;
@@ -1422,19 +1498,23 @@ function checkWeek() {
    PKCE
 ========================================================= */
 
-function randomString(length) {
+function randomString(
+    length = 64
+) {
 
     const chars =
         "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789-._~";
 
-    const values =
-        new Uint8Array(length);
+    const bytes =
+        new Uint8Array(
+            length
+        );
 
     crypto.getRandomValues(
-        values
+        bytes
     );
 
-    let result = "";
+    let output = "";
 
     for (
         let i = 0;
@@ -1442,39 +1522,15 @@ function randomString(length) {
         i++
     ) {
 
-        result +=
+        output +=
             chars[
-                values[i] %
+                bytes[i] %
                 chars.length
             ];
 
     }
 
-    return result;
-
-}
-
-
-async function sha256(value) {
-
-    return crypto.subtle.digest(
-        "SHA-256",
-        new TextEncoder().encode(value)
-    );
-
-}
-
-
-function base64url(buffer) {
-
-    return btoa(
-        String.fromCharCode(
-            ...new Uint8Array(buffer)
-        )
-    )
-    .replace(/\+/g, "-")
-    .replace(/\//g, "_")
-    .replace(/=/g, "");
+    return output;
 
 }
 
@@ -1483,25 +1539,45 @@ async function createChallenge(
     verifier
 ) {
 
-    return base64url(
-        await sha256(
-            verifier
+    const hash =
+        await crypto.subtle.digest(
+            "SHA-256",
+            new TextEncoder()
+                .encode(
+                    verifier
+                )
+        );
+
+    return btoa(
+        String.fromCharCode(
+            ...new Uint8Array(hash)
         )
-    );
+    )
+    .replace(
+        /\+/g,
+        "-"
+    )
+    .replace(
+        /\//g,
+        "_"
+    )
+    .replace(
+        /=/g,
+        "");
 
 }
 
 
 /* =========================================================
-   SPOTIFY LOGIN
+   LOGIN
 ========================================================= */
 
-async function loginSpotify() {
+async function login() {
 
     try {
 
         const verifier =
-            randomString(64);
+            randomString();
 
         const challenge =
             await createChallenge(
@@ -1513,8 +1589,15 @@ async function loginSpotify() {
 
 
         localStorage.setItem(
-            "daily_code_verifier",
+            "daily_verifier",
             verifier
+        );
+
+        localStorage.setItem(
+            "daily_state",
+            JSON.stringify({
+                ...state
+            })
         );
 
         localStorage.setItem(
@@ -1536,7 +1619,11 @@ async function loginSpotify() {
                     REDIRECT_URI,
 
                 scope:
-                    SCOPES,
+                    [
+                        "user-read-private",
+                        "user-top-read",
+                        "user-read-recently-played"
+                    ].join(" "),
 
                 state:
                     oauthState,
@@ -1550,22 +1637,10 @@ async function loginSpotify() {
             });
 
 
-        const url =
+        window.location.href =
             "https://accounts.spotify.com/authorize?"
             +
             params.toString();
-
-
-        /*
-        IMPORTANT:
-
-        Same tab.
-
-        Spotify sends us back here after authorization.
-        */
-
-        window.location.href =
-            url;
 
     }
     catch(error) {
@@ -1582,7 +1657,7 @@ async function loginSpotify() {
 
 
 /* =========================================================
-   CALLBACK
+   TOKEN EXCHANGE
 ========================================================= */
 
 async function handleCallback() {
@@ -1591,7 +1666,6 @@ async function handleCallback() {
         new URLSearchParams(
             window.location.search
         );
-
 
     const code =
         params.get("code");
@@ -1603,10 +1677,6 @@ async function handleCallback() {
         params.get("state");
 
 
-    /*
-    Normal page load.
-    */
-
     if (
         !code &&
         !error
@@ -1617,14 +1687,10 @@ async function handleCallback() {
     }
 
 
-    /*
-    User denied.
-    */
-
     if (error) {
 
         showError(
-            "Spotify authorization was cancelled: "
+            "Spotify authorization failed: "
             +
             error
         );
@@ -1636,10 +1702,6 @@ async function handleCallback() {
     }
 
 
-    /*
-    Validate OAuth state.
-    */
-
     const savedState =
         localStorage.getItem(
             "daily_oauth_state"
@@ -1647,12 +1709,15 @@ async function handleCallback() {
 
 
     if (
-        !savedState ||
-        savedState !== returnedState
+        !savedState
+        ||
+        savedState
+        !==
+        returnedState
     ) {
 
         showError(
-            "Spotify login security check failed. Please connect Spotify again."
+            "Spotify login security check failed. Please connect again."
         );
 
         cleanURL();
@@ -1664,14 +1729,14 @@ async function handleCallback() {
 
     const verifier =
         localStorage.getItem(
-            "daily_code_verifier"
+            "daily_verifier"
         );
 
 
     if (!verifier) {
 
         showError(
-            "Spotify login session expired. Please connect again."
+            "Your Spotify login session expired. Please connect again."
         );
 
         cleanURL();
@@ -1684,32 +1749,24 @@ async function handleCallback() {
     try {
 
         const body =
-            new URLSearchParams();
+            new URLSearchParams({
 
-        body.append(
-            "grant_type",
-            "authorization_code"
-        );
+                client_id:
+                    CLIENT_ID,
 
-        body.append(
-            "code",
-            code
-        );
+                grant_type:
+                    "authorization_code",
 
-        body.append(
-            "redirect_uri",
-            REDIRECT_URI
-        );
+                code:
+                    code,
 
-        body.append(
-            "client_id",
-            CLIENT_ID
-        );
+                redirect_uri:
+                    REDIRECT_URI,
 
-        body.append(
-            "code_verifier",
-            verifier
-        );
+                code_verifier:
+                    verifier
+
+            });
 
 
         const response =
@@ -1724,20 +1781,40 @@ async function handleCallback() {
                             "application/x-www-form-urlencoded"
                     },
 
-                    body
+                    body:
+                        body
                 }
             );
 
 
-        const data =
-            await response.json();
+        const text =
+            await response.text();
+
+
+        let data;
+
+        try {
+
+            data =
+                JSON.parse(text);
+
+        }
+        catch {
+
+            throw new Error(
+                "Spotify returned an unexpected response while signing in."
+            );
+
+        }
 
 
         if (!response.ok) {
 
             throw new Error(
-                data.error_description ||
-                data.error ||
+                data.error_description
+                ||
+                data.error
+                ||
                 "Spotify token request failed."
             );
 
@@ -1748,16 +1825,19 @@ async function handleCallback() {
             data.access_token;
 
         state.refreshToken =
-            data.refresh_token ||
-            state.refreshToken ||
-            null;
+            data.refresh_token
+            ||
+            state.refreshToken;
 
         state.expiresAt =
             Date.now()
             +
             (
-                data.expires_in
-                * 1000
+                Number(
+                    data.expires_in
+                )
+                *
+                1000
             );
 
 
@@ -1765,7 +1845,7 @@ async function handleCallback() {
 
 
         localStorage.removeItem(
-            "daily_code_verifier"
+            "daily_verifier"
         );
 
         localStorage.removeItem(
@@ -1789,8 +1869,6 @@ async function handleCallback() {
         );
 
         showError(
-            "Spotify authorization failed: "
-            +
             error.message
         );
 
@@ -1804,7 +1882,7 @@ async function handleCallback() {
 
 
 /* =========================================================
-   TOKEN REFRESH
+   REFRESH TOKEN
 ========================================================= */
 
 async function refreshToken() {
@@ -1821,22 +1899,18 @@ async function refreshToken() {
     try {
 
         const body =
-            new URLSearchParams();
+            new URLSearchParams({
 
-        body.append(
-            "grant_type",
-            "refresh_token"
-        );
+                grant_type:
+                    "refresh_token",
 
-        body.append(
-            "refresh_token",
-            state.refreshToken
-        );
+                refresh_token:
+                    state.refreshToken,
 
-        body.append(
-            "client_id",
-            CLIENT_ID
-        );
+                client_id:
+                    CLIENT_ID
+
+            });
 
 
         const response =
@@ -1856,8 +1930,23 @@ async function refreshToken() {
             );
 
 
-        const data =
-            await response.json();
+        const text =
+            await response.text();
+
+
+        let data;
+
+        try {
+
+            data =
+                JSON.parse(text);
+
+        }
+        catch {
+
+            return false;
+
+        }
 
 
         if (!response.ok) {
@@ -1873,8 +1962,13 @@ async function refreshToken() {
         state.expiresAt =
             Date.now()
             +
-            data.expires_in
-            * 1000;
+            (
+                Number(
+                    data.expires_in
+                )
+                *
+                1000
+            );
 
 
         if (
@@ -1909,12 +2003,20 @@ async function spotify(
     endpoint
 ) {
 
-    /*
-    Refresh slightly early.
-    */
+    if (
+        !state.accessToken
+    ) {
+
+        throw new Error(
+            "Spotify isn't connected."
+        );
+
+    }
+
 
     if (
-        state.expiresAt &&
+        state.expiresAt
+        &&
         Date.now()
         >
         state.expiresAt - 60000
@@ -1926,10 +2028,8 @@ async function spotify(
 
         if (!refreshed) {
 
-            disconnect();
-
             throw new Error(
-                "Spotify session expired."
+                "Your Spotify session expired. Please reconnect."
             );
 
         }
@@ -1939,9 +2039,7 @@ async function spotify(
 
     const response =
         await fetch(
-            "https://api.spotify.com/v1"
-            +
-            endpoint,
+            API + endpoint,
             {
                 headers: {
                     Authorization:
@@ -1953,9 +2051,30 @@ async function spotify(
         );
 
 
-    /*
-    Try refreshing once.
-    */
+    const text =
+        await response.text();
+
+
+    let data;
+
+    try {
+
+        data =
+            text
+            ?
+            JSON.parse(text)
+            :
+            {};
+
+    }
+    catch {
+
+        throw new Error(
+            "Spotify returned invalid data."
+        );
+
+    }
+
 
     if (
         response.status === 401
@@ -1975,26 +2094,36 @@ async function spotify(
 
         }
 
-
-        disconnect();
-
         throw new Error(
-            "Spotify authorization expired."
+            "Spotify authorization expired. Please reconnect."
         );
 
     }
 
 
-    const data =
-        await response.json();
+    if (
+        response.status === 429
+    ) {
+
+        throw new Error(
+            "Spotify is rate-limiting Daily. Please wait a moment and try again."
+        );
+
+    }
 
 
-    if (!response.ok) {
+    if (
+        !response.ok
+    ) {
 
         throw new Error(
             data.error?.message
             ||
-            "Spotify API error."
+            data.error_description
+            ||
+            "Spotify API error: HTTP "
+            +
+            response.status
         );
 
     }
@@ -2006,7 +2135,7 @@ async function spotify(
 
 
 /* =========================================================
-   START APP
+   START
 ========================================================= */
 
 async function startApp() {
@@ -2044,48 +2173,39 @@ async function startApp() {
         renderProfile();
 
 
-        /*
-        If there is no current album,
-        generate one.
-        */
+        renderHistory();
+
+
+        renderGenres();
+
+
+        updateJourney();
+
+
+        updateRerolls();
+
 
         if (
-            !state.current
+            state.journeyPosition
+            >=
+            JOURNEY_SIZE
         ) {
 
-            /*
-            If journey already has 3,
-            show completion.
-            */
-
-            if (
-                state.journeyPosition
-                >=
-                JOURNEY_LENGTH
-            ) {
-
-                showJourneyFinished();
-
-            }
-            else {
-
-                await generateAlbum();
-
-            }
+            showFinished();
 
         }
-        else {
+        else if (
+            state.current
+        ) {
 
             renderAlbum();
 
         }
+        else {
 
+            await nextAlbum();
 
-        renderHistory();
-
-        updateJourney();
-
-        updateRerolls();
+        }
 
     }
     catch(error) {
@@ -2111,9 +2231,11 @@ async function startApp() {
 
 function renderProfile() {
 
-    if (
-        !state.profile
-    ) {
+    const profile =
+        state.profile;
+
+
+    if (!profile) {
 
         return;
 
@@ -2123,7 +2245,7 @@ function renderProfile() {
     document.getElementById(
         "profileName"
     ).textContent =
-        state.profile.display_name
+        profile.display_name
         ||
         "Spotify User";
 
@@ -2131,35 +2253,96 @@ function renderProfile() {
     document.getElementById(
         "headerUser"
     ).textContent =
-        state.profile.display_name
+        profile.display_name
         ||
         "Spotify";
 
 
     if (
-        state.profile.images
+        profile.images
         &&
-        state.profile.images[0]
+        profile.images[0]
     ) {
 
         document.getElementById(
             "profileImage"
         ).src =
-            state.profile.images[0].url;
+            profile.images[0].url;
 
     }
-
-
-    document.getElementById(
-        "headerLogin"
-    ).textContent =
-        "Spotify Connected";
 
 }
 
 
 /* =========================================================
-   GET USER TASTE
+   RANDOM
+========================================================= */
+
+function randomItem(
+    array
+) {
+
+    if (
+        !array.length
+    ) {
+
+        return null;
+
+    }
+
+    return array[
+        Math.floor(
+            Math.random()
+            *
+            array.length
+        )
+    ];
+
+}
+
+
+function shuffle(
+    array
+) {
+
+    const result =
+        [...array];
+
+
+    for (
+        let i =
+            result.length - 1;
+        i > 0;
+        i--
+    ) {
+
+        const j =
+            Math.floor(
+                Math.random()
+                *
+                (i + 1)
+            );
+
+
+        [
+            result[i],
+            result[j]
+        ] =
+        [
+            result[j],
+            result[i]
+        ];
+
+    }
+
+
+    return result;
+
+}
+
+
+/* =========================================================
+   GET TASTE
 ========================================================= */
 
 async function getTaste() {
@@ -2176,92 +2359,73 @@ async function getTaste() {
 
 
     /*
-    Top artists.
+    Only three user-data calls.
+
+    This is much lighter than the previous version.
     */
 
-    try {
+    const requests = await Promise.allSettled([
 
-        const data =
-            await spotify(
-                "/me/top/artists"
-                +
-                "?time_range=medium_term"
-                +
-                "&limit=50"
-            );
+        spotify(
+            "/me/top/artists"
+            +
+            "?time_range=medium_term"
+            +
+            "&limit=50"
+        ),
 
+        spotify(
+            "/me/top/tracks"
+            +
+            "?time_range=medium_term"
+            +
+            "&limit=50"
+        ),
+
+        spotify(
+            "/me/player/recently-played"
+            +
+            "?limit=50"
+        )
+
+    ]);
+
+
+    if (
+        requests[0].status ===
+        "fulfilled"
+    ) {
 
         result.artists =
-            data.items ||
+            requests[0].value.items
+            ||
             [];
 
     }
-    catch(error) {
-
-        console.warn(
-            "Top artists unavailable",
-            error
-        );
-
-    }
 
 
-    /*
-    Top tracks.
-    */
-
-    try {
-
-        const data =
-            await spotify(
-                "/me/top/tracks"
-                +
-                "?time_range=medium_term"
-                +
-                "&limit=50"
-            );
-
+    if (
+        requests[1].status ===
+        "fulfilled"
+    ) {
 
         result.tracks =
-            data.items ||
+            requests[1].value.items
+            ||
             [];
 
     }
-    catch(error) {
-
-        console.warn(
-            "Top tracks unavailable",
-            error
-        );
-
-    }
 
 
-    /*
-    Recently played.
-    */
-
-    try {
-
-        const data =
-            await spotify(
-                "/me/player/recently-played"
-                +
-                "?limit=50"
-            );
-
+    if (
+        requests[2].status ===
+        "fulfilled"
+    ) {
 
         result.recent =
-            data.items ||
+            requests[2].value.items
+            ||
             [];
-
-    }
-    catch(error) {
-
-        console.warn(
-            "Recently played unavailable",
-            error
-        );
 
     }
 
@@ -2272,70 +2436,105 @@ async function getTaste() {
 
 
 /* =========================================================
-   SEARCH
+   CANDIDATES FROM PERSONAL TASTE
 ========================================================= */
 
-async function search(
-    query,
-    type = "album"
+function personalCandidates(
+    taste
 ) {
 
-    const params =
-        new URLSearchParams({
-
-            q: query,
-
-            type: type,
-
-            limit: "10"
-
-        });
+    const candidates = [];
 
 
-    try {
+    /*
+    Top tracks are very useful because
+    we already have their album objects.
+    */
 
-        const data =
-            await spotify(
-                "/search?"
-                +
-                params.toString()
-            );
-
+    for (
+        const track
+        of shuffle(
+            taste.tracks
+        )
+    ) {
 
         if (
-            type === "album"
+            track.album
+            &&
+            track.album.id
         ) {
 
-            return data.albums?.items
-                || [];
+            candidates.push({
+
+                album:
+                    track.album,
+
+                score:
+                    60
+                    +
+                    Math.random()
+                    *
+                    50
+
+            });
 
         }
 
+    }
+
+
+    /*
+    Recently played gets a smaller score.
+
+    This keeps recently heard music relevant
+    without making Daily repeat your current rotation.
+    */
+
+    for (
+        const item
+        of shuffle(
+            taste.recent
+        )
+    ) {
+
+        const album =
+            item.track?.album;
+
 
         if (
-            type === "artist"
+            album
+            &&
+            album.id
         ) {
 
-            return data.artists?.items
-                || [];
+            candidates.push({
+
+                album:
+                    album,
+
+                score:
+                    15
+                    +
+                    Math.random()
+                    *
+                    45
+
+            });
 
         }
 
-
-        return [];
-
     }
-    catch(error) {
 
-        console.warn(
-            "Search failed:",
-            query,
-            error
-        );
 
-        return [];
+    /*
+    Top artist information is used to
+    discover artist albums.
 
-    }
+    We intentionally only inspect a few artists
+    to avoid unnecessary API calls.
+    */
+
+    return candidates;
 
 }
 
@@ -2344,7 +2543,7 @@ async function search(
    ARTIST ALBUMS
 ========================================================= */
 
-async function getArtistAlbums(
+async function artistAlbums(
     artistId
 ) {
 
@@ -2362,15 +2561,21 @@ async function getArtistAlbums(
                 +
                 "?include_groups=album,compilation"
                 +
-                "&limit=50"
+                "&limit=10"
             );
 
 
-        return data.items ||
+        return data.items
+            ||
             [];
 
     }
-    catch {
+    catch(error) {
+
+        console.warn(
+            "Artist album request failed:",
+            error
+        );
 
         return [];
 
@@ -2380,143 +2585,147 @@ async function getArtistAlbums(
 
 
 /* =========================================================
-   RANDOM NUMBER
+   GENRE ARTISTS
 ========================================================= */
 
-function randomBetween(
-    min,
-    max
+async function getGenreAlbums(
+    genre
 ) {
 
-    return (
-        Math.random()
-        *
-        (max - min)
-    )
-    +
-    min;
+    try {
 
-}
+        /*
+        Search returns at most 10 results
+        under Spotify's current API behavior.
+        */
+
+        const params =
+            new URLSearchParams({
+
+                q:
+                    "genre:"
+                    +
+                    genre,
+
+                type:
+                    "artist",
+
+                limit:
+                    "10"
+
+            });
 
 
-/* =========================================================
-   SHUFFLE
-========================================================= */
-
-function shuffle(
-    array
-) {
-
-    const copy =
-        [...array];
-
-
-    for (
-        let i =
-            copy.length - 1;
-        i > 0;
-        i--
-    ) {
-
-        const j =
-            Math.floor(
-                Math.random()
-                *
-                (i + 1)
+        const data =
+            await spotify(
+                "/search?"
+                +
+                params.toString()
             );
 
 
-        [
-            copy[i],
-            copy[j]
-        ] =
-        [
-            copy[j],
-            copy[i]
-        ];
+        const artists =
+            data.artists?.items
+            ||
+            [];
+
+
+        /*
+        Only ask a handful of artists for albums.
+
+        This prevents a genre selection from
+        generating a huge number of requests.
+        */
+
+        const selected =
+            shuffle(
+                artists
+            ).slice(
+                0,
+                5
+            );
+
+
+        const results =
+            await Promise.all(
+                selected.map(
+                    artist =>
+                        artistAlbums(
+                            artist.id
+                        )
+                )
+            );
+
+
+        return results.flat();
 
     }
+    catch(error) {
 
+        console.warn(
+            "Genre search failed:",
+            error
+        );
 
-    return copy;
+        return [];
+
+    }
 
 }
 
 
 /* =========================================================
-   GET CANDIDATES
+   DISCOVERY ALGORITHM
 ========================================================= */
 
-async function getCandidates() {
+async function buildCandidates() {
 
     const taste =
         await getTaste();
 
 
-    let candidates = [];
+    let candidates =
+        personalCandidates(
+            taste
+        );
 
 
     /*
-    ---------------------------------------------------------
-    GENRE MODE
-    ---------------------------------------------------------
+    Genre mode.
+
+    We combine genre albums with personal
+    albums instead of completely replacing
+    your taste.
     */
 
     if (
         state.selectedGenre
     ) {
 
-        /*
-        Spotify's genre search is for artists/tracks,
-        so we first find artists matching the genre,
-        then inspect their albums.
-        */
-
-        const genreArtists =
-            await search(
-                `genre:${state.selectedGenre}`,
-                "artist"
-            );
-
-
-        const shuffledArtists =
-            shuffle(
-                genreArtists
-            )
-            .slice(
-                0,
-                10
+        const genreAlbums =
+            await getGenreAlbums(
+                state.selectedGenre
             );
 
 
         for (
-            const artist
-            of shuffledArtists
+            const album
+            of genreAlbums
         ) {
 
-            const albums =
-                await getArtistAlbums(
-                    artist.id
-                );
+            candidates.push({
 
+                album:
+                    album,
 
-            albums.forEach(
-                album => {
+                score:
+                    40
+                    +
+                    Math.random()
+                    *
+                    90
 
-                    candidates.push({
-
-                        album: album,
-
-                        score:
-                            randomBetween(
-                                35,
-                                100
-                            )
-
-                    });
-
-                }
-            );
+            });
 
         }
 
@@ -2524,77 +2733,35 @@ async function getCandidates() {
 
 
     /*
-    ---------------------------------------------------------
-    NORMAL PERSONALIZED MODE
-    ---------------------------------------------------------
+    Use top artists as a discovery source.
+
+    Only 5 artist requests.
     */
 
-    /*
-    Favorite artists.
-    */
-
-    const artists =
+    const topArtists =
         shuffle(
             taste.artists
+        ).slice(
+            0,
+            5
         );
 
 
-    for (
-        const artist
-        of artists.slice(
-            0,
-            15
-        )
-    ) {
-
-        const albums =
-            await getArtistAlbums(
-                artist.id
-            );
+    const artistResults =
+        await Promise.all(
+            topArtists.map(
+                artist =>
+                    artistAlbums(
+                        artist.id
+                    )
+            )
+        );
 
 
-        albums.forEach(
+    artistResults
+        .flat()
+        .forEach(
             album => {
-
-                /*
-                More randomness.
-
-                Artist popularity still matters,
-                but only loosely.
-                */
-
-                let score =
-                    randomBetween(
-                        20,
-                        100
-                    );
-
-
-                /*
-                Top artists get a little bonus.
-                */
-
-                const artistIndex =
-                    taste.artists.findIndex(
-                        a =>
-                            a.id ===
-                            artist.id
-                    );
-
-
-                if (
-                    artistIndex >= 0
-                ) {
-
-                    score +=
-                        Math.max(
-                            0,
-                            25 -
-                            artistIndex
-                        );
-
-                }
-
 
                 candidates.push({
 
@@ -2602,95 +2769,22 @@ async function getCandidates() {
                         album,
 
                     score:
-                        score
+                        35
+                        +
+                        Math.random()
+                        *
+                        100
 
                 });
 
             }
         );
 
-    }
-
 
     /*
-    Favorite tracks' albums.
-    */
-
-    for (
-        const track
-        of shuffle(
-            taste.tracks
-        ).slice(
-            0,
-            30
-        )
-    ) {
-
-        if (
-            track.album
-        ) {
-
-            candidates.push({
-
-                album:
-                    track.album,
-
-                score:
-                    randomBetween(
-                        55,
-                        115
-                    )
-
-            });
-
-        }
-
-    }
-
-
-    /*
-    Recently played albums.
-
-    Lower score because we want
-    discovery rather than repetition.
-    */
-
-    for (
-        const item
-        of shuffle(
-            taste.recent
-        ).slice(
-            0,
-            30
-        )
-    ) {
-
-        if (
-            item.track?.album
-        ) {
-
-            candidates.push({
-
-                album:
-                    item.track.album,
-
-                score:
-                    randomBetween(
-                        5,
-                        40
-                    )
-
-            });
-
-        }
-
-    }
-
-
-    /*
-    ---------------------------------------------------------
-    FILTER NO REPEATS
-    ---------------------------------------------------------
+    =========================================================
+    REMOVE USED ALBUMS
+    =========================================================
     */
 
     const used =
@@ -2700,7 +2794,7 @@ async function getCandidates() {
 
 
     /*
-    Also don't suggest current album.
+    Current album is also unavailable.
     */
 
     if (
@@ -2714,56 +2808,8 @@ async function getCandidates() {
     }
 
 
-    candidates =
-        candidates.filter(
-            candidate => {
-
-                const album =
-                    candidate.album;
-
-
-                if (
-                    !album?.id
-                ) {
-
-                    return false;
-
-                }
-
-
-                if (
-                    used.has(
-                        album.id
-                    )
-                ) {
-
-                    return false;
-
-                }
-
-
-                /*
-                Ignore singles when possible.
-                */
-
-                if (
-                    album.album_type ===
-                    "single"
-                ) {
-
-                    return false;
-
-                }
-
-
-                return true;
-
-            }
-        );
-
-
     /*
-    Remove duplicate candidates.
+    Deduplicate.
     */
 
     const unique =
@@ -2775,43 +2821,86 @@ async function getCandidates() {
         of candidates
     ) {
 
-        const id =
-            candidate.album.id;
+        const album =
+            candidate.album;
 
 
         if (
-            !unique.has(id)
+            !album
+            ||
+            !album.id
+        ) {
+
+            continue;
+
+        }
+
+
+        if (
+            used.has(
+                album.id
+            )
+        ) {
+
+            continue;
+
+        }
+
+
+        /*
+        Don't use singles as the Daily album
+        unless we absolutely have no alternatives.
+        */
+
+        if (
+            album.album_type
+            ===
+            "single"
+        ) {
+
+            continue;
+
+        }
+
+
+        /*
+        Normalize score.
+
+        Randomness is intentionally significant.
+        */
+
+        const score =
+            candidate.score
+            +
+            (
+                Math.random()
+                *
+                80
+            );
+
+
+        if (
+            !unique.has(
+                album.id
+            )
+            ||
+            score
+            >
+            unique.get(
+                album.id
+            ).score
         ) {
 
             unique.set(
-                id,
-                candidate
+                album.id,
+                {
+                    album:
+                        album,
+
+                    score:
+                        score
+                }
             );
-
-        }
-        else {
-
-            /*
-            Keep whichever candidate
-            has the higher randomized score.
-            */
-
-            const existing =
-                unique.get(id);
-
-
-            if (
-                candidate.score
-                >
-                existing.score
-            ) {
-
-                unique.set(
-                    id,
-                    candidate
-                );
-
-            }
 
         }
 
@@ -2823,19 +2912,21 @@ async function getCandidates() {
 
 
     /*
-    ---------------------------------------------------------
-    RANDOMIZED SELECTION
-    ---------------------------------------------------------
+    =========================================================
+    SMART RANDOM SELECTION
+    =========================================================
 
-    Instead of always taking #1,
-    give the top pool a chance.
+    Don't simply pick #1.
 
-    This makes Daily less predictable.
+    Take a pool of good candidates,
+    then randomly select from it.
     */
 
     candidates.sort(
         (a,b) =>
-            b.score - a.score
+            b.score
+            -
+            a.score
     );
 
 
@@ -2843,201 +2934,82 @@ async function getCandidates() {
         candidates.slice(
             0,
             Math.min(
-                35,
+                20,
                 candidates.length
             )
         );
 
 
-    /*
-    Shuffle the pool again.
-    */
-
-    const weighted =
-        shuffle(pool);
-
-
-    if (
-        weighted.length
-    ) {
-
-        /*
-        Bias toward better albums,
-        but allow surprising picks.
-        */
-
-        weighted.sort(
-            () =>
-                Math.random()
-                -
-                0.5
-        );
-
-
-        const top =
-            candidates.slice(
-                0,
-                Math.min(
-                    10,
-                    candidates.length
-                )
-            );
-
-
-        const finalPool =
-            [
-                ...top,
-                ...weighted
-            ];
-
-
-        return shuffle(
-            finalPool
-        );
-
-    }
-
-
-    return [];
+    return shuffle(
+        pool
+    );
 
 }
 
 
 /* =========================================================
-   GENERATE ALBUM
+   NEXT ALBUM
 ========================================================= */
 
-async function generateAlbum() {
+async function nextAlbum() {
 
     if (
         state.journeyPosition
         >=
-        JOURNEY_LENGTH
+        JOURNEY_SIZE
     ) {
 
-        showJourneyFinished();
+        showFinished();
 
         return;
 
     }
 
 
-    document.getElementById(
-        "albumTitle"
-    ).textContent =
-        "Finding something new...";
-
-
-    document.getElementById(
-        "albumArtist"
-    ).textContent =
-        "Searching Spotify";
-
-
-    document.getElementById(
-        "albumDescription"
-    ).textContent =
-        state.selectedGenre
-        ?
-        "Looking through "
-        +
-        state.selectedGenre
-        +
-        " for something you haven't discovered yet."
-        :
-        "Mixing your listening history with a little randomness to find your next album.";
+    setLoading();
 
 
     try {
 
         const candidates =
-            await getCandidates();
+            await buildCandidates();
 
 
         if (
             !candidates.length
         ) {
 
-            /*
-            If genre mode has no results,
-            fall back to normal discovery.
-            */
-
-            if (
-                state.selectedGenre
-            ) {
-
-                const oldGenre =
-                    state.selectedGenre;
-
-
-                state.selectedGenre =
-                    null;
-
-
-                const fallback =
-                    await getCandidates();
-
-
-                state.selectedGenre =
-                    oldGenre;
-
-
-                if (
-                    !fallback.length
-                ) {
-
-                    throw new Error(
-                        "I couldn't find any unused albums. You may have discovered a LOT of Spotify already!"
-                    );
-
-                }
-
-
-                state.current =
-                    fallback[
-                        Math.floor(
-                            Math.random()
-                            *
-                            fallback.length
-                        )
-                    ].album;
-
-            }
-            else {
-
-                throw new Error(
-                    "I couldn't find a new album right now."
-                );
-
-            }
-
-        }
-        else {
-
-            state.current =
-                candidates[
-                    Math.floor(
-                        Math.random()
-                        *
-                        Math.min(
-                            candidates.length,
-                            12
-                        )
-                    )
-                ].album;
+            throw new Error(
+                "Daily couldn't find an unused album right now. Try changing the genre or try again in a moment."
+            );
 
         }
 
 
         /*
-        Mark it as used IMMEDIATELY.
+        Pick randomly from the candidate pool.
+        */
 
-        This means rerolling can NEVER bring it back.
+        const chosen =
+            randomItem(
+                candidates
+            );
+
+
+        state.current =
+            chosen.album;
+
+
+        /*
+        IMPORTANT:
+
+        The album becomes permanently used
+        the moment Daily shows it.
+
+        Therefore a reroll can NEVER return it.
         */
 
         if (
-            state.current?.id &&
             !state.usedIds.includes(
                 state.current.id
             )
@@ -3059,6 +3031,7 @@ async function generateAlbum() {
 
         updateRerolls();
 
+
     }
     catch(error) {
 
@@ -3071,6 +3044,44 @@ async function generateAlbum() {
         );
 
     }
+
+}
+
+
+/* =========================================================
+   LOADING UI
+========================================================= */
+
+function setLoading() {
+
+    document.getElementById(
+        "albumTitle"
+    ).textContent =
+        "Finding something...";
+
+
+    document.getElementById(
+        "albumArtist"
+    ).textContent =
+        "Searching Spotify";
+
+
+    document.getElementById(
+        "albumDescription"
+    ).textContent =
+        "Mixing your Spotify taste with randomness to find an album you haven't discovered yet.";
+
+
+    document.getElementById(
+        "albumCover"
+    ).src =
+        "";
+
+
+    document.getElementById(
+        "finishButton"
+    ).disabled =
+        true;
 
 }
 
@@ -3120,17 +3131,16 @@ function renderAlbum() {
             )
             .join(", ")
         ||
-        "Unknown Artist";
+        "Unknown artist";
 
 
     const year =
         album.release_date
         ?
-        album.release_date
-            .substring(
-                0,
-                4
-            )
+        album.release_date.substring(
+            0,
+            4
+        )
         :
         "Unknown";
 
@@ -3140,24 +3150,21 @@ function renderAlbum() {
     ).innerHTML = `
 
         <span class="tag">
-            ${year}
+            ${escapeHTML(year)}
         </span>
 
         <span class="tag">
-            ${album.total_tracks || "?"}
-            tracks
+            ${album.total_tracks || "?"} tracks
         </span>
 
         ${
             state.selectedGenre
             ?
-            `
-            <span class="tag">
+            `<span class="tag">
                 ${escapeHTML(
                     state.selectedGenre
                 )}
-            </span>
-            `
+            </span>`
             :
             ""
         }
@@ -3170,9 +3177,19 @@ function renderAlbum() {
     ).textContent =
         state.selectedGenre
         ?
-        `A ${state.selectedGenre} pick mixed into your Daily discovery. You haven't completed this album before.`
+        "A "
+        +
+        state.selectedGenre
+        +
+        " discovery mixed into your Daily Journey."
         :
-        "A randomized discovery based on your Spotify taste. It can come from familiar artists, adjacent artists, or something you haven't heard before.";
+        "A randomized discovery built from your Spotify listening patterns. Familiar enough to fit your taste, but random enough to surprise you.";
+
+
+    document.getElementById(
+        "finishButton"
+    ).disabled =
+        false;
 
 
     document.getElementById(
@@ -3198,7 +3215,7 @@ function renderAlbum() {
 
 
 /* =========================================================
-   FINISH ALBUM
+   FINISH
 ========================================================= */
 
 document.getElementById(
@@ -3216,13 +3233,14 @@ document.getElementById(
 
 
         /*
-        Add to completed history.
+        Add to history.
         */
 
         if (
             !state.completed.some(
                 album =>
-                    album.id ===
+                    album.id
+                    ===
                     state.current.id
             )
         ) {
@@ -3234,20 +3252,11 @@ document.getElementById(
         }
 
 
-        /*
-        Advance journey.
-        */
-
-        state.journey.push(
-            state.current
-        );
-
-
         state.journeyPosition++;
 
 
         /*
-        Current album is gone.
+        Current album is finished.
         */
 
         state.current =
@@ -3262,20 +3271,16 @@ document.getElementById(
         updateJourney();
 
 
-        /*
-        Journey finished.
-        */
-
         if (
             state.journeyPosition
             >=
-            JOURNEY_LENGTH
+            JOURNEY_SIZE
         ) {
 
-            showJourneyFinished();
+            showFinished();
 
             showToast(
-                "You completed your Daily Journey!"
+                "Journey complete! 🎉"
             );
 
             return;
@@ -3284,15 +3289,11 @@ document.getElementById(
 
 
         showToast(
-            "Album finished! Unlocking the next one..."
+            "Album finished. Next one unlocked!"
         );
 
 
-        /*
-        Automatically find next album.
-        */
-
-        await generateAlbum();
+        await nextAlbum();
 
     };
 
@@ -3312,7 +3313,7 @@ document.getElementById(
         if (
             state.rerollsUsed
             >=
-            3
+            MAX_REROLLS
         ) {
 
             showToast(
@@ -3333,15 +3334,14 @@ document.getElementById(
         }
 
 
-        /*
-        Current album was already placed in usedIds
-        when generated.
-
-        Therefore it can never come back.
-        */
-
         state.rerollsUsed++;
 
+
+        /*
+        The old album remains in usedIds.
+
+        It cannot come back.
+        */
 
         state.current =
             null;
@@ -3350,55 +3350,92 @@ document.getElementById(
         save();
 
 
-        document.getElementById(
-            "genrePanel"
-        ).classList.remove(
-            "show"
-        );
-
-
-        await generateAlbum();
+        await nextAlbum();
 
 
         updateRerolls();
 
+
         showToast(
-            "Rerolled! That album won't come back."
+            "Rerolled. The previous album won't return."
         );
 
     };
 
 
 /* =========================================================
-   REROLL INFO
+   RESET DAILY
 ========================================================= */
 
-function updateRerolls() {
-
-    checkWeek();
-
-
-    const remaining =
-        3 -
-        state.rerollsUsed;
+document.getElementById(
+    "resetButton"
+).onclick =
+    resetDaily;
 
 
-    document.getElementById(
-        "rerollInfo"
-    ).textContent =
-        remaining
-        +
-        " of 3 weekly rerolls remaining.";
+function resetDaily() {
 
-
-    const button =
-        document.getElementById(
-            "rerollButton"
+    const confirmed =
+        confirm(
+            "Start a new Daily Journey?\n\n"
+            +
+            "This will start a fresh 3-album journey."
+            +
+            "\n\n"
+            +
+            "Your discovery history and no-repeat list will NOT be deleted."
         );
 
 
-    button.disabled =
-        remaining <= 0;
+    if (!confirmed) {
+
+        return;
+
+    }
+
+
+    /*
+    IMPORTANT:
+
+    We DO NOT clear usedIds.
+
+    This is what prevents albums from returning.
+    */
+
+    state.current =
+        null;
+
+    state.journeyPosition =
+        0;
+
+    state.journeyNumber++;
+
+
+    save();
+
+
+    document.getElementById(
+        "finished"
+    ).classList.remove(
+        "show"
+    );
+
+
+    document.getElementById(
+        "albumCard"
+    ).style.display =
+        "grid";
+
+
+    updateJourney();
+
+
+    nextAlbum();
+
+
+    showToast(
+        "New Daily started!"
+    );
 
 }
 
@@ -3412,24 +3449,17 @@ document.getElementById(
 ).onclick =
     function() {
 
-        const panel =
-            document.getElementById(
-                "genrePanel"
-            );
-
-
-        panel.classList.toggle(
-            "show"
+        document.getElementById(
+            "genrePanel"
+        ).classList.toggle(
+            "open"
         );
-
-
-        renderGenres();
 
     };
 
 
 /* =========================================================
-   GENRE LIST
+   GENRES
 ========================================================= */
 
 function renderGenres() {
@@ -3444,7 +3474,7 @@ function renderGenres() {
 
 
     /*
-    "For You" button.
+    For You
     */
 
     const normal =
@@ -3470,7 +3500,7 @@ function renderGenres() {
 
 
     normal.onclick =
-        async () => {
+        async function() {
 
             state.selectedGenre =
                 null;
@@ -3480,9 +3510,11 @@ function renderGenres() {
 
             save();
 
-            closeGenrePanel();
 
-            await generateAlbum();
+            closeGenre();
+
+
+            await nextAlbum();
 
         };
 
@@ -3492,11 +3524,7 @@ function renderGenres() {
     );
 
 
-    /*
-    Genres.
-    */
-
-    ALL_GENRES.forEach(
+    GENRES.forEach(
         genre => {
 
             const button =
@@ -3524,17 +3552,15 @@ function renderGenres() {
 
 
             button.onclick =
-                async () => {
+                async function() {
 
                     state.selectedGenre =
                         genre;
 
 
                     /*
-                    We don't want the
-                    previous album anymore.
-
-                    It is already in usedIds.
+                    The current album remains permanently used,
+                    but we immediately replace it.
                     */
 
                     state.current =
@@ -3544,10 +3570,10 @@ function renderGenres() {
                     save();
 
 
-                    closeGenrePanel();
+                    closeGenre();
 
 
-                    await generateAlbum();
+                    await nextAlbum();
 
                 };
 
@@ -3566,12 +3592,12 @@ function renderGenres() {
    CLOSE GENRE
 ========================================================= */
 
-function closeGenrePanel() {
+function closeGenre() {
 
     document.getElementById(
         "genrePanel"
     ).classList.remove(
-        "show"
+        "open"
     );
 
 }
@@ -3586,7 +3612,7 @@ function updateJourney() {
     const position =
         Math.min(
             state.journeyPosition,
-            JOURNEY_LENGTH
+            JOURNEY_SIZE
         );
 
 
@@ -3597,23 +3623,19 @@ function updateJourney() {
         +
         " / "
         +
-        JOURNEY_LENGTH;
-
-
-    const percentage =
-        (
-            position
-            /
-            JOURNEY_LENGTH
-        )
-        *
-        100;
+        JOURNEY_SIZE;
 
 
     document.getElementById(
-        "progressFill"
+        "progressBar"
     ).style.width =
-        percentage
+        (
+            position
+            /
+            JOURNEY_SIZE
+            *
+            100
+        )
         +
         "%";
 
@@ -3621,10 +3643,48 @@ function updateJourney() {
 
 
 /* =========================================================
-   JOURNEY FINISHED
+   REROLLS
 ========================================================= */
 
-function showJourneyFinished() {
+function updateRerolls() {
+
+    checkWeek();
+
+
+    const remaining =
+        Math.max(
+            0,
+            MAX_REROLLS
+            -
+            state.rerollsUsed
+        );
+
+
+    document.getElementById(
+        "rerollInfo"
+    ).textContent =
+        remaining
+        +
+        " of "
+        +
+        MAX_REROLLS
+        +
+        " weekly rerolls remaining.";
+
+
+    document.getElementById(
+        "rerollButton"
+    ).disabled =
+        remaining <= 0;
+
+}
+
+
+/* =========================================================
+   FINISHED
+========================================================= */
+
+function showFinished() {
 
     document.getElementById(
         "albumCard"
@@ -3633,13 +3693,10 @@ function showJourneyFinished() {
 
 
     document.getElementById(
-        "finishedJourney"
+        "finished"
     ).classList.add(
         "show"
     );
-
-
-    updateJourney();
 
 }
 
@@ -3652,7 +3709,7 @@ function renderHistory() {
 
     const grid =
         document.getElementById(
-            "completedGrid"
+            "historyGrid"
         );
 
 
@@ -3660,24 +3717,18 @@ function renderHistory() {
 
 
     document.getElementById(
-        "completedCount"
+        "historyCount"
     ).textContent =
         state.completed.length
-        +
-        " album"
         +
         (
             state.completed.length === 1
             ?
-            ""
+            " album"
             :
-            "s"
+            " albums"
         );
 
-
-    /*
-    Newest first.
-    */
 
     state.completed
         .slice()
@@ -3692,7 +3743,7 @@ function renderHistory() {
 
 
                 card.className =
-                    "completed-card";
+                    "history-card";
 
 
                 const link =
@@ -3721,36 +3772,28 @@ function renderHistory() {
                 card.innerHTML = `
 
                     <a
-                        href="${link}"
+                        href="${escapeAttribute(link)}"
                         target="_blank"
                         rel="noopener noreferrer">
 
                         <img
-                            src="${image}"
-                            alt=""
-                        >
+                            src="${escapeAttribute(image)}"
+                            alt="">
 
                     </a>
 
-                    <div
-                        class="completed-info">
+                    <div class="history-info">
 
-                        <span
-                            class="completed-name">
-
+                        <span class="history-name">
                             ${escapeHTML(
                                 album.name
                             )}
-
                         </span>
 
-                        <span
-                            class="completed-artist">
-
+                        <span class="history-artist">
                             ${escapeHTML(
                                 artist
                             )}
-
                         </span>
 
                     </div>
@@ -3774,16 +3817,12 @@ function renderHistory() {
 
 function disconnect() {
 
-    /*
-    Completely remove local Daily data.
-    */
-
     localStorage.removeItem(
         "daily_state"
     );
 
     localStorage.removeItem(
-        "daily_code_verifier"
+        "daily_verifier"
     );
 
     localStorage.removeItem(
@@ -3797,7 +3836,7 @@ function disconnect() {
 
 
 /* =========================================================
-   CLEAN URL
+   URL
 ========================================================= */
 
 function cleanURL() {
@@ -3819,26 +3858,18 @@ function showError(
     message
 ) {
 
-    const element =
+    const box =
         document.getElementById(
             "error"
         );
 
 
-    element.textContent =
+    box.textContent =
         message;
 
 
-    element.style.display =
+    box.style.display =
         "block";
-
-
-    window.scrollTo(
-        {
-            top: 0,
-            behavior: "smooth"
-        }
-    );
 
 }
 
@@ -3881,7 +3912,7 @@ function showToast(
 
 
 /* =========================================================
-   ESCAPE HTML
+   HTML ESCAPING
 ========================================================= */
 
 function escapeHTML(
@@ -3915,6 +3946,17 @@ function escapeHTML(
 }
 
 
+function escapeAttribute(
+    value
+) {
+
+    return escapeHTML(
+        value
+    );
+
+}
+
+
 /* =========================================================
    INITIALIZE
 ========================================================= */
@@ -3922,16 +3964,15 @@ function escapeHTML(
 (async function() {
 
     /*
-    First check if Spotify just redirected
-    us back with an authorization code.
+    Handle Spotify callback first.
     */
 
-    const handled =
+    const callbackHandled =
         await handleCallback();
 
 
     if (
-        handled
+        callbackHandled
     ) {
 
         return;
@@ -3940,12 +3981,14 @@ function escapeHTML(
 
 
     /*
-    Existing session.
+    Existing valid session.
     */
 
     if (
-        state.accessToken &&
-        state.expiresAt &&
+        state.accessToken
+        &&
+        state.expiresAt
+        &&
         Date.now()
         <
         state.expiresAt
