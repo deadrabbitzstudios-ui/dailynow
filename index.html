@@ -749,6 +749,209 @@ main{
     opacity:1;
 }
 
+.hero-icon{
+    width:54px;
+    height:54px;
+    object-fit:contain;
+    display:block;
+    margin:0 auto 22px;
+}
+
+.header-reset,
+.header-settings{
+    border:1px solid var(--border);
+    background:var(--panel2);
+    color:var(--text);
+    border-radius:999px;
+    font-weight:800;
+    cursor:pointer;
+}
+
+.header-reset{
+    padding:9px 13px;
+    font-size:11px;
+}
+
+.header-settings{
+    width:36px;
+    height:36px;
+    padding:0;
+    font-size:17px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+}
+
+.header-reset:hover,
+.header-settings:hover{
+    border-color:var(--green);
+    color:var(--green);
+}
+
+.settings-overlay{
+    position:fixed;
+    inset:0;
+    z-index:1000;
+    background:rgba(0,0,0,.72);
+    backdrop-filter:blur(8px);
+    display:none;
+    align-items:center;
+    justify-content:center;
+    padding:20px;
+}
+
+.settings-overlay.open{
+    display:flex;
+}
+
+.settings-panel{
+    width:min(560px,100%);
+    max-height:min(760px,90vh);
+    overflow:auto;
+    background:#101411;
+    border:1px solid var(--border);
+    border-radius:22px;
+    box-shadow:0 24px 90px rgba(0,0,0,.55);
+    padding:24px;
+}
+
+.settings-top{
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    gap:20px;
+    margin-bottom:26px;
+}
+
+.settings-brand{
+    display:flex;
+    align-items:center;
+    gap:14px;
+}
+
+.settings-icon{
+    width:46px;
+    height:46px;
+    object-fit:contain;
+}
+
+.settings-kicker{
+    color:var(--green);
+    font-size:9px;
+    font-weight:950;
+    letter-spacing:2px;
+}
+
+.settings-top h2{
+    margin:3px 0 0;
+    font-size:26px;
+}
+
+.settings-close{
+    width:36px;
+    height:36px;
+    border:1px solid var(--border);
+    border-radius:50%;
+    background:var(--panel2);
+    color:var(--text);
+    font-size:24px;
+    line-height:1;
+    cursor:pointer;
+}
+
+.settings-section{
+    border-top:1px solid var(--border);
+    padding:20px 0;
+}
+
+.settings-section-title{
+    margin-bottom:10px;
+    color:#666;
+    font-size:10px;
+    font-weight:900;
+    letter-spacing:1.5px;
+    text-transform:uppercase;
+}
+
+.settings-row{
+    width:100%;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    gap:20px;
+    padding:15px 0;
+    border:0;
+    border-bottom:1px solid rgba(255,255,255,.045);
+    background:transparent;
+    color:var(--text);
+    text-align:left;
+    cursor:pointer;
+}
+
+.settings-row:last-child{
+    border-bottom:0;
+}
+
+.settings-row strong,
+.settings-row small{
+    display:block;
+}
+
+.settings-row strong{
+    font-size:14px;
+}
+
+.settings-row small{
+    margin-top:5px;
+    color:#777;
+    font-size:11px;
+    line-height:1.5;
+}
+
+.settings-row:hover strong{
+    color:var(--green);
+}
+
+.danger-row:hover strong{
+    color:#ff7777;
+}
+
+.settings-arrow{
+    color:#666;
+    font-size:25px;
+}
+
+.finished-actions{
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    gap:10px;
+    flex-wrap:wrap;
+    margin-top:20px;
+}
+
+.settings-finished{
+    border:1px solid var(--border);
+    background:var(--panel2);
+    color:var(--text);
+    border-radius:999px;
+    padding:11px 16px;
+    font-weight:850;
+    cursor:pointer;
+}
+
+.settings-finished:hover{
+    border-color:var(--green);
+    color:var(--green);
+}
+
+.settings-footer{
+    padding-top:18px;
+    color:#555;
+    font-size:10px;
+    text-align:center;
+}
+
 /* CALENDAR */
 
 .calendar-section{
@@ -892,6 +1095,24 @@ main{
         height:48px;
     }
 
+    .header-user{
+        display:none;
+    }
+
+    .header-reset{
+        padding:8px 10px;
+    }
+
+    .header-settings{
+        width:34px;
+        height:34px;
+    }
+
+    .hero-icon{
+        width:46px;
+        height:46px;
+    }
+
     .calendar-section{
         padding:16px;
     }
@@ -965,6 +1186,22 @@ main{
         </span>
 
         <button
+            class="header-reset"
+            id="headerReset"
+            type="button">
+            ↻ Reset
+        </button>
+
+        <button
+            class="header-settings"
+            id="settingsButton"
+            type="button"
+            aria-label="Open settings"
+            title="Settings">
+            ⚙
+        </button>
+
+        <button
             class="header-login"
             id="headerLogin"
             onclick="login()">
@@ -980,6 +1217,12 @@ main{
 
 <section class="hero">
 
+    <img
+        class="hero-icon"
+        src="daily-icon.png"
+        alt=""
+        aria-hidden="true">
+
     <h1>
         Your album.<br>
         Every <span>day.</span>
@@ -992,6 +1235,98 @@ main{
     </p>
 
 </section>
+
+
+<!-- SETTINGS -->
+
+<div
+    class="settings-overlay"
+    id="settingsOverlay"
+    aria-hidden="true">
+
+    <section
+        class="settings-panel"
+        role="dialog"
+        aria-modal="true"
+        aria-labelledby="settingsTitle">
+
+        <div class="settings-top">
+
+            <div class="settings-brand">
+                <img src="daily-icon.png" alt="" class="settings-icon">
+                <div>
+                    <div class="settings-kicker">DAILY NOW</div>
+                    <h2 id="settingsTitle">Settings</h2>
+                </div>
+            </div>
+
+            <button
+                class="settings-close"
+                id="settingsClose"
+                type="button"
+                aria-label="Close settings">
+                ×
+            </button>
+
+        </div>
+
+        <div class="settings-section">
+
+            <div class="settings-section-title">Daily</div>
+
+            <button class="settings-row" id="settingsResetDaily" type="button">
+                <span>
+                    <strong>Reset Daily</strong>
+                    <small>Start a fresh 3-album journey without deleting your history.</small>
+                </span>
+                <span class="settings-arrow">›</span>
+            </button>
+
+            <button class="settings-row" id="settingsClearToday" type="button">
+                <span>
+                    <strong>Clear Today's Albums</strong>
+                    <small>Remove today's finished albums and today's calendar count.</small>
+                </span>
+                <span class="settings-arrow">›</span>
+            </button>
+
+        </div>
+
+        <div class="settings-section">
+
+            <div class="settings-section-title">History</div>
+
+            <button class="settings-row danger-row" id="settingsClearHistory" type="button">
+                <span>
+                    <strong>Clear All History</strong>
+                    <small>Delete your discovery history and calendar totals.</small>
+                </span>
+                <span class="settings-arrow">›</span>
+            </button>
+
+        </div>
+
+        <div class="settings-section">
+
+            <div class="settings-section-title">Account</div>
+
+            <button class="settings-row" id="settingsDisconnect" type="button">
+                <span>
+                    <strong>Disconnect Spotify</strong>
+                    <small>Sign out of Spotify and clear the saved connection.</small>
+                </span>
+                <span class="settings-arrow">›</span>
+            </button>
+
+        </div>
+
+        <div class="settings-footer">
+            Daily Now · 3 albums per journey
+        </div>
+
+    </section>
+
+</div>
 
 
 <!-- ERROR PANEL -->
@@ -1244,11 +1579,20 @@ main{
             Start another Daily whenever you want.
         </p>
 
-        <button
-            class="green-button"
-            onclick="resetDaily()">
-            Start Another Daily
-        </button>
+        <div class="finished-actions">
+            <button
+                class="green-button"
+                onclick="resetDaily()">
+                ↻ Reset Daily
+            </button>
+
+            <button
+                class="settings-finished"
+                id="finishedSettingsButton"
+                type="button">
+                ⚙ Settings
+            </button>
+        </div>
 
     </section>
 
@@ -1660,6 +2004,87 @@ function getLocalDateKey(date = new Date()){
     const day = String(date.getDate()).padStart(2,"0");
 
     return `${year}-${month}-${day}`;
+}
+
+
+function rebuildDailyCounts(){
+
+    const counts = {};
+
+    if(!Array.isArray(state.completed))
+        return counts;
+
+    state.completed.forEach(
+        album => {
+
+            const date =
+                album._dailyCompletedAt;
+
+            if(!date)
+                return;
+
+            counts[date] =
+                Number(counts[date] || 0) + 1;
+
+        }
+    );
+
+    return counts;
+
+}
+
+
+function getJourneyCompletedCount(){
+
+    const journey = Number(state.journeyNumber || 1);
+
+    return Array.isArray(state.completed)
+        ? state.completed.filter(
+            album =>
+                Number(album._dailyJourneyNumber || 0) === journey
+          ).length
+        : 0;
+
+}
+
+
+function syncJourneyPosition(){
+
+    const derived =
+        getJourneyCompletedCount();
+
+    if(derived > 0 || state.journeyPosition === 0){
+        state.journeyPosition = Math.min(derived, JOURNEY_SIZE);
+    }
+
+}
+
+
+function syncDailyCounts(){
+
+    const rebuilt =
+        rebuildDailyCounts();
+
+    Object.keys(
+        state.dailyCounts || {}
+    ).forEach(
+        key => {
+
+            if(
+                !rebuilt[key] &&
+                Number(state.dailyCounts[key]) > 0
+            ){
+
+                rebuilt[key] =
+                    Number(state.dailyCounts[key]);
+
+            }
+
+        }
+    );
+
+    state.dailyCounts = rebuilt;
+
 }
 
 
@@ -2353,6 +2778,8 @@ async function startApp(){
         save();
 
         renderProfile();
+        syncJourneyPosition();
+        syncDailyCounts();
         renderHistory();
         renderCalendar();
         renderGenres();
@@ -3546,7 +3973,8 @@ async function(){
 
         const completedAlbum = {
             ...state.current,
-            _dailyCompletedAt:getLocalDateKey()
+            _dailyCompletedAt:getLocalDateKey(),
+            _dailyJourneyNumber:Number(state.journeyNumber || 1)
         };
 
         state.completed.push(
@@ -3557,10 +3985,20 @@ async function(){
             getLocalDateKey();
 
         state.dailyCounts[today] =
-            Number(state.dailyCounts[today] || 0) + 1;
+            state.completed.filter(
+                album =>
+                    album._dailyCompletedAt === today
+            ).length;
 
     }
-state.journeyPosition++;
+
+    syncDailyCounts();
+    syncJourneyPosition();
+
+    state.journeyPosition = Math.min(
+        getJourneyCompletedCount(),
+        JOURNEY_SIZE
+    );
 
     state.current=null;
 
@@ -3659,6 +4097,11 @@ document.getElementById(
 ).onclick =
 resetDaily;
 
+document.getElementById(
+    "headerReset"
+).onclick =
+resetDaily;
+
 
 function resetDaily(){
 
@@ -3678,9 +4121,8 @@ function resetDaily(){
 
     state.current=null;
 
-    state.journeyPosition=0;
-
     state.journeyNumber++;
+    state.journeyPosition=0;
 
     save();
 
@@ -3758,9 +4200,12 @@ function(){
 
     delete state.dailyCounts[today];
 
+    syncDailyCounts();
+
     state.current=null;
     state.journeyPosition=0;
 
+    syncJourneyPosition();
     save();
 
     document.getElementById("finished").classList.remove("show");
@@ -3797,6 +4242,8 @@ function(){
     state.completed=[];
     state.dailyCounts={};
 
+    syncDailyCounts();
+
     state.usedIds =
         currentId
         ?
@@ -3808,10 +4255,143 @@ function(){
 
     renderHistory();
     renderCalendar();
+    updateJourney();
 
     showToast("Discovery history cleared.");
 
 };
+
+
+/* =========================================================
+   SETTINGS
+========================================================= */
+
+const settingsOverlay =
+    document.getElementById("settingsOverlay");
+
+
+function openSettings(){
+
+    settingsOverlay.classList.add("open");
+    settingsOverlay.setAttribute(
+        "aria-hidden",
+        "false"
+    );
+
+}
+
+
+function closeSettings(){
+
+    settingsOverlay.classList.remove("open");
+    settingsOverlay.setAttribute(
+        "aria-hidden",
+        "true"
+    );
+
+}
+
+
+document.getElementById(
+    "settingsButton"
+).onclick =
+openSettings;
+
+
+document.getElementById(
+    "settingsClose"
+).onclick =
+closeSettings;
+
+
+settingsOverlay.addEventListener(
+    "click",
+    function(event){
+
+        if(
+            event.target ===
+            settingsOverlay
+        ){
+
+            closeSettings();
+
+        }
+
+    }
+);
+
+
+document.addEventListener(
+    "keydown",
+    function(event){
+
+        if(
+            event.key === "Escape"
+        ){
+
+            closeSettings();
+
+        }
+
+    }
+);
+
+
+document.getElementById(
+    "settingsResetDaily"
+).onclick =
+function(){
+
+    closeSettings();
+    resetDaily();
+
+};
+
+
+document.getElementById(
+    "settingsClearToday"
+).onclick =
+function(){
+
+    closeSettings();
+
+    document.getElementById(
+        "clearTodayButton"
+    ).click();
+
+};
+
+
+document.getElementById(
+    "settingsClearHistory"
+).onclick =
+function(){
+
+    closeSettings();
+
+    document.getElementById(
+        "clearHistoryButton"
+    ).click();
+
+};
+
+
+document.getElementById(
+    "settingsDisconnect"
+).onclick =
+function(){
+
+    closeSettings();
+
+    disconnect();
+
+};
+
+
+document.getElementById(
+    "finishedSettingsButton"
+).onclick =
+openSettings;
 
 
 /* =========================================================
