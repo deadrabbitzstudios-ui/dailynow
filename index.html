@@ -6,6 +6,18 @@
 
 <title>Daily Now</title>
 
+    <link
+    rel="icon"
+    type="image/png"
+    href="https://raw.githubusercontent.com/deadrabbitzstudios-ui/dailynow/main/daily-icon.png"
+>
+
+<link
+    rel="shortcut icon"
+    type="image/png"
+    href="https://raw.githubusercontent.com/deadrabbitzstudios-ui/dailynow/main/daily-icon.png"
+>
+
 <style>
 :root {
     --accent: rgb(35, 120, 255);
@@ -1886,6 +1898,46 @@ main {
 </div>
 
 <script>
+/* =========================================================
+   SHUFFLE HELPER
+   ========================================================= */
+
+function shuffle(array) {
+
+    if (!Array.isArray(array)) {
+        return [];
+    }
+
+    const result = [...array];
+
+    for (
+        let i = result.length - 1;
+        i > 0;
+        i--
+    ) {
+
+        const j =
+            Math.floor(
+                Math.random()
+                *
+                (i + 1)
+            );
+
+        [
+            result[i],
+            result[j]
+        ] =
+        [
+            result[j],
+            result[i]
+        ];
+
+    }
+
+    return result;
+
+}
+</script>
 
 /* =========================================================
    CONFIG
