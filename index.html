@@ -4,10 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Daily Now - Discover Something New</title>
-
-    <link rel="icon" type="image/png" href="https://raw.githubusercontent.com/deadrabbitzstudios-ui/dailynow/main/daily-icon.png">
-<link rel="shortcut icon" type="image/png" href="https://raw.githubusercontent.com/deadrabbitzstudios-ui/dailynow/main/daily-icon.png">
+<title>Daily Now</title>
 
 <style>
 :root {
@@ -79,22 +76,6 @@ button:disabled {
 a {
     color: inherit;
     text-decoration: none;
-}
-    // Daily - Random shuffle helper
-function shuffle(array) {
-    if (!Array.isArray(array)) {
-        return [];
-    }
-
-    const result = [...array];
-
-    for (let i = result.length - 1; i > 0; i--) {
-        const j = Math.floor(Math.random() * (i + 1));
-
-        [result[i], result[j]] = [result[j], result[i]];
-    }
-
-    return result;
 }
 
 /* =========================================================
