@@ -2,32 +2,35 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
 <title>Daily</title>
 
 <style>
-:root {
-    --accent: #2684ff;
-    --bg: #080b10;
-    --panel: #10151d;
-    --panel2: #171e28;
-    --border: #273142;
-    --text: #ffffff;
-    --muted: #929dad;
-    --danger: #ff5964;
-    --success: #46d98b;
+:root{
+    --accent:#2684ff;
+    --bg:#070a0f;
+    --panel:#10151d;
+    --panel2:#171e28;
+    --border:#273142;
+    --text:#fff;
+    --muted:#929dad;
+    --danger:#ff5964;
+    --success:#46d98b;
 }
 
-* {
-    box-sizing: border-box;
+*{
+    box-sizing:border-box;
 }
 
-body {
-    margin: 0;
+body{
+    margin:0;
     background:
-        radial-gradient(circle at top, #17243a 0%, #080b10 50%);
-    color: var(--text);
+        radial-gradient(
+            circle at 50% -20%,
+            #182945 0%,
+            #070a0f 55%
+        );
+    color:var(--text);
     font-family:
         Inter,
         system-ui,
@@ -39,266 +42,223 @@ body {
 
 button,
 select,
-input {
-    font: inherit;
+input{
+    font:inherit;
 }
 
-button {
-    cursor: pointer;
+button{
+    cursor:pointer;
 }
 
-.topbar {
-    position: sticky;
-    top: 0;
-    z-index: 100;
+.topbar{
+    position:sticky;
+    top:0;
+    z-index:100;
 
-    height: 82px;
+    height:92px;
 
-    display: flex;
-    align-items: center;
+    display:flex;
+    align-items:center;
 
-    padding: 8px 24px;
+    padding:8px 24px;
 
-    background: rgba(8, 11, 16, 0.92);
-    backdrop-filter: blur(15px);
+    background:rgba(7,10,15,.94);
+    backdrop-filter:blur(16px);
 
-    border-bottom: 1px solid var(--border);
+    border-bottom:1px solid var(--border);
 }
 
-.logo {
-    height: 62px;
-    width: auto;
-    max-width: 330px;
-    object-fit: contain;
+.logo{
+    height:72px;
+    width:auto;
+    max-width:360px;
+    object-fit:contain;
 }
 
-.spacer {
-    flex: 1;
+.spacer{
+    flex:1;
 }
 
-.top-button {
-    margin-left: 8px;
+.top-button{
+    margin-left:8px;
+    padding:11px 15px;
 
-    padding: 10px 14px;
+    color:white;
+    background:var(--panel);
 
-    border-radius: 11px;
-
-    border: 1px solid var(--border);
-
-    background: var(--panel);
-
-    color: white;
+    border:1px solid var(--border);
+    border-radius:11px;
 }
 
-.top-button:hover {
-    border-color: var(--accent);
+.top-button:hover{
+    border-color:var(--accent);
 }
 
-.container {
-    max-width: 1200px;
-
-    margin: auto;
+.container{
+    max-width:1200px;
+    margin:auto;
 
     padding:
         35px
         20px
-        80px;
+        90px;
 }
 
-.hero {
-    display: flex;
+.hero{
+    display:flex;
+    align-items:end;
+    justify-content:space-between;
 
-    justify-content: space-between;
+    gap:25px;
 
-    align-items: end;
-
-    gap: 20px;
-
-    margin-bottom: 25px;
+    margin-bottom:25px;
 }
 
-.hero h1 {
-    font-size: 44px;
-
-    margin:
-        0
-        0
-        7px;
+.hero h1{
+    margin:0 0 6px;
+    font-size:45px;
 }
 
-.muted {
-    color: var(--muted);
+.muted{
+    color:var(--muted);
 }
 
-.controls {
-    display: flex;
-
-    flex-wrap: wrap;
-
-    gap: 8px;
+.controls{
+    display:flex;
+    flex-wrap:wrap;
+    gap:8px;
 }
 
-.btn {
-    padding: 10px 14px;
+.btn,
+select{
+    padding:10px 14px;
 
-    border-radius: 11px;
+    border-radius:11px;
 
-    border: 1px solid var(--border);
+    border:1px solid var(--border);
 
-    background: var(--panel);
-
-    color: white;
+    background:var(--panel);
+    color:white;
 }
 
-.btn:hover {
-    border-color: var(--accent);
+.btn:hover{
+    border-color:var(--accent);
 }
 
-.btn.primary {
-    background: var(--accent);
-
-    border-color: var(--accent);
+.btn.primary{
+    background:var(--accent);
+    border-color:var(--accent);
 }
 
-.btn.danger {
-    background: #35171b;
-
-    border-color: #703038;
+.btn.danger{
+    background:#35171b;
+    border-color:#71333b;
 }
 
-select {
-    background: var(--panel);
-
-    color: white;
-
-    border: 1px solid var(--border);
-
-    border-radius: 11px;
-
-    padding: 10px;
+.btn:disabled{
+    opacity:.5;
+    cursor:not-allowed;
 }
 
-.status {
-    margin-bottom: 20px;
+.status{
+    margin-bottom:20px;
 
-    padding: 14px;
+    padding:14px;
 
-    background: var(--panel);
+    border:1px solid var(--border);
+    border-radius:13px;
 
-    border: 1px solid var(--border);
-
-    border-radius: 13px;
+    background:var(--panel);
 }
 
-.status.success {
-    border-color: #285d43;
+.status.success{
+    border-color:#285d43;
 }
 
-.status.error {
-    border-color: #74323b;
-
-    background: #241419;
+.status.error{
+    border-color:#74323b;
+    background:#241419;
 }
 
-.error-code {
-    margin-top: 10px;
+.error-code{
+    margin-top:10px;
+    padding:12px;
 
-    padding: 10px;
+    background:#080b10;
+    border-radius:8px;
 
-    background: #0b0e13;
+    font-family:Consolas,monospace;
+    font-size:13px;
 
-    border-radius: 8px;
-
-    white-space: pre-wrap;
-
-    font-family:
-        Consolas,
-        monospace;
-
-    font-size: 13px;
-
-    overflow-wrap: anywhere;
+    white-space:pre-wrap;
+    overflow-wrap:anywhere;
 }
 
-.album-grid {
-    display: grid;
-
-    grid-template-columns:
-        repeat(3, 1fr);
-
-    gap: 20px;
+.album-grid{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:20px;
 }
 
-.album-card {
-    overflow: hidden;
+.album-card{
+    overflow:hidden;
 
     background:
         linear-gradient(
             180deg,
             #151c27,
-            #0f141c
+            #0e131a
         );
 
-    border:
-        1px solid
-        var(--border);
-
-    border-radius: 18px;
+    border:1px solid var(--border);
+    border-radius:18px;
 
     box-shadow:
         0 15px 40px
         rgba(0,0,0,.35);
 }
 
-.album-cover {
-    width: 100%;
-
-    aspect-ratio: 1;
-
-    object-fit: cover;
-
-    display: block;
+.album-cover{
+    width:100%;
+    aspect-ratio:1;
+    object-fit:cover;
+    display:block;
 }
 
-.album-content {
-    padding: 17px;
+.album-content{
+    padding:17px;
 }
 
-.album-number {
-    color: var(--accent);
+.album-number{
+    color:var(--accent);
+    font-size:12px;
+    font-weight:bold;
 
-    font-size: 12px;
-
-    font-weight: bold;
-
-    margin-bottom: 5px;
+    margin-bottom:5px;
 }
 
-.album-name {
-    font-size: 21px;
-
-    margin: 0;
+.album-name{
+    margin:0;
+    font-size:21px;
 }
 
-.artist {
-    color: #c3cad6;
-
-    margin-top: 4px;
+.artist{
+    margin-top:4px;
+    color:#c3cad6;
 }
 
-.album-meta {
-    margin-top: 10px;
+.album-meta{
+    margin-top:10px;
 
-    color: var(--muted);
-
-    font-size: 12px;
+    color:var(--muted);
+    font-size:12px;
 }
 
-.genre-tag {
-    display: inline-block;
+.genre-tag{
+    display:inline-block;
 
     margin:
-        3px
+        4px
         3px
         0
         0;
@@ -307,275 +267,224 @@ select {
         3px
         7px;
 
-    border-radius: 50px;
+    border-radius:50px;
 
-    background: #202938;
+    background:#202938;
 }
 
-.stars {
-    display: flex;
-
-    gap: 2px;
-
-    margin:
-        13px
-        0;
+.stars{
+    display:flex;
+    gap:2px;
+    margin:13px 0;
 }
 
-.star {
-    padding: 0;
+.star{
+    padding:0;
 
-    border: 0;
+    border:0;
+    background:none;
 
-    background: none;
+    color:#4b5567;
 
-    color: #4b5567;
-
-    font-size: 27px;
+    font-size:27px;
 }
 
-.star.active {
-    color: #ffd34d;
+.star.active{
+    color:#ffd34d;
 }
 
-.album-actions {
-    display: flex;
-
-    flex-wrap: wrap;
-
-    gap: 8px;
+.album-actions{
+    display:flex;
+    flex-wrap:wrap;
+    gap:8px;
 }
 
-.section {
-    margin-top: 35px;
+.section{
+    margin-top:35px;
 }
 
-.panel {
-    background: var(--panel);
+.panel{
+    padding:20px;
 
-    border: 1px solid var(--border);
+    background:var(--panel);
 
-    border-radius: 18px;
-
-    padding: 20px;
+    border:1px solid var(--border);
+    border-radius:18px;
 }
 
-.calendar-header {
-    display: flex;
+.calendar-header{
+    display:flex;
+    align-items:center;
+    gap:10px;
 
-    align-items: center;
-
-    gap: 10px;
-
-    margin-bottom: 15px;
+    margin-bottom:15px;
 }
 
-.calendar-header strong {
-    flex: 1;
-
-    text-align: center;
+.calendar-header strong{
+    flex:1;
+    text-align:center;
 }
 
-.calendar {
-    display: grid;
-
-    grid-template-columns:
-        repeat(7, 1fr);
-
-    gap: 6px;
+.calendar{
+    display:grid;
+    grid-template-columns:repeat(7,1fr);
+    gap:6px;
 }
 
-.calendar-day {
-    min-height: 85px;
+.calendar-day{
+    min-height:85px;
 
-    padding: 7px;
+    padding:7px;
 
-    background: var(--panel2);
+    background:var(--panel2);
 
-    border:
-        1px solid
-        var(--border);
+    border:1px solid var(--border);
+    border-radius:9px;
 
-    border-radius: 9px;
-
-    font-size: 12px;
+    font-size:12px;
 }
 
-.calendar-day.completed {
-    border-color: var(--accent);
+.calendar-day.completed{
+    border-color:var(--accent);
 }
 
-.calendar-day-number {
-    font-weight: bold;
+.calendar-dot{
+    width:8px;
+    height:8px;
+
+    margin-top:8px;
+
+    border-radius:50%;
+    background:var(--accent);
 }
 
-.calendar-dot {
-    width: 8px;
-
-    height: 8px;
-
-    margin-top: 8px;
-
-    border-radius: 50%;
-
-    background: var(--accent);
+.history{
+    display:grid;
+    gap:9px;
 }
 
-.history {
-    display: grid;
+.history-item{
+    display:flex;
+    align-items:center;
+    gap:12px;
 
-    gap: 9px;
+    padding:10px;
+
+    background:var(--panel2);
+
+    border:1px solid var(--border);
+    border-radius:12px;
 }
 
-.history-item {
-    display: flex;
+.history-image{
+    width:60px;
+    height:60px;
 
-    align-items: center;
+    object-fit:cover;
 
-    gap: 12px;
-
-    padding: 10px;
-
-    background: var(--panel2);
-
-    border:
-        1px solid
-        var(--border);
-
-    border-radius: 12px;
+    border-radius:8px;
 }
 
-.history-image {
-    width: 60px;
-
-    height: 60px;
-
-    object-fit: cover;
-
-    border-radius: 8px;
+.history-info{
+    flex:1;
 }
 
-.history-info {
-    flex: 1;
+.empty{
+    padding:50px 20px;
+
+    text-align:center;
+
+    color:var(--muted);
+
+    border:1px dashed var(--border);
+    border-radius:16px;
 }
 
-.empty {
-    padding: 50px 20px;
+.modal{
+    position:fixed;
+    inset:0;
+    z-index:500;
 
-    text-align: center;
+    display:none;
+    align-items:center;
+    justify-content:center;
 
-    border:
-        1px dashed
-        var(--border);
+    padding:20px;
 
-    border-radius: 16px;
-
-    color: var(--muted);
+    background:rgba(0,0,0,.75);
 }
 
-.modal {
-    position: fixed;
-
-    inset: 0;
-
-    z-index: 500;
-
-    display: none;
-
-    align-items: center;
-
-    justify-content: center;
-
-    padding: 20px;
-
-    background: rgba(0,0,0,.75);
+.modal.open{
+    display:flex;
 }
 
-.modal.open {
-    display: flex;
+.modal-box{
+    width:min(700px,100%);
+    max-height:90vh;
+    overflow:auto;
+
+    padding:22px;
+
+    background:#111722;
+
+    border:1px solid var(--border);
+    border-radius:18px;
 }
 
-.modal-box {
-    width: min(700px, 100%);
-
-    max-height: 90vh;
-
-    overflow-y: auto;
-
-    padding: 22px;
-
-    background: #111722;
-
-    border:
-        1px solid
-        var(--border);
-
-    border-radius: 18px;
+.modal-title{
+    display:flex;
+    align-items:center;
+    margin-bottom:20px;
 }
 
-.modal-title {
-    display: flex;
-
-    align-items: center;
-
-    margin-bottom: 20px;
+.modal-title h2{
+    flex:1;
+    margin:0;
 }
 
-.modal-title h2 {
-    flex: 1;
-
-    margin: 0;
+.setting{
+    margin:20px 0;
 }
 
-.setting {
-    margin:
-        18px
-        0;
+.setting label{
+    display:block;
+    margin-bottom:7px;
+    color:#cbd2dd;
 }
 
-.setting label {
-    display: block;
-
-    margin-bottom: 7px;
-
-    color: #cbd2dd;
+.color-input{
+    width:100px;
+    height:45px;
+    border:0;
+    background:none;
 }
 
-.color-input {
-    width: 100px;
-
-    height: 45px;
-
-    border: 0;
-
-    background: transparent;
+hr{
+    border:0;
+    border-top:1px solid var(--border);
 }
 
-@media(max-width: 850px) {
+@media(max-width:850px){
 
-    .album-grid {
-        grid-template-columns: 1fr;
+    .album-grid{
+        grid-template-columns:1fr;
     }
 
-    .hero {
-        display: block;
+    .hero{
+        display:block;
     }
 
-    .hero h1 {
-        font-size: 36px;
+    .controls{
+        margin-top:18px;
     }
 
-    .controls {
-        margin-top: 18px;
+    .topbar{
+        padding:8px 12px;
     }
 
-    .topbar {
-        padding: 8px 12px;
-    }
-
-    .logo {
-        height: 50px;
-        max-width: 250px;
+    .logo{
+        height:58px;
+        max-width:260px;
     }
 }
 </style>
@@ -616,46 +525,42 @@ select {
 <section class="hero">
 
 <div>
+    <h1>Today's Daily</h1>
 
-<h1>Today's Daily</h1>
-
-<div
-    id="subtitle"
-    class="muted"
->
-    Discover three albums.
-</div>
-
+    <div
+        id="subtitle"
+        class="muted"
+    >
+        Discover three albums.
+    </div>
 </div>
 
 <div class="controls">
 
 <select id="genreSelect">
-<option value="">
-Any Genre
-</option>
+    <option value="">Any Genre</option>
 </select>
 
 <button
     id="generateButton"
     class="btn primary"
 >
-Get Today's Daily
+    Get Today's Daily
 </button>
 
 <button
     id="rerollButton"
     class="btn"
 >
-Reroll
-<span id="rerollCount">3</span>/3
+    Reroll
+    <span id="rerollCount">3</span>/3
 </button>
 
 <button
     id="resetTodayButton"
     class="btn"
 >
-Reset Today
+    Reset Today
 </button>
 
 </div>
@@ -667,11 +572,14 @@ Reset Today
     id="status"
     class="status"
 >
-Not connected to Spotify.
+    Connect Spotify to begin.
 </div>
 
 
-<section id="albumGrid" class="album-grid"></section>
+<section
+    id="albumGrid"
+    class="album-grid"
+></section>
 
 
 <section class="section panel">
@@ -684,7 +592,7 @@ Not connected to Spotify.
     id="previousMonth"
     class="btn"
 >
-←
+    ←
 </button>
 
 <strong id="monthTitle"></strong>
@@ -693,12 +601,15 @@ Not connected to Spotify.
     id="nextMonth"
     class="btn"
 >
-→
+    →
 </button>
 
 </div>
 
-<div id="calendar" class="calendar"></div>
+<div
+    id="calendar"
+    class="calendar"
+></div>
 
 </section>
 
@@ -710,8 +621,7 @@ Not connected to Spotify.
 <div
     id="history"
     class="history"
->
-</div>
+></div>
 
 </section>
 
@@ -733,7 +643,7 @@ Not connected to Spotify.
     id="closeSettings"
     class="btn"
 >
-✕
+    ✕
 </button>
 
 </div>
@@ -761,32 +671,27 @@ Daily Accent Color
     id="exportButton"
     class="btn primary"
 >
-Export Daily Data (.dnd)
+    Export Daily Data (.dnd)
 </button>
 
 <button
     id="importButton"
     class="btn"
 >
-Import Daily Data
+    Import Data
 </button>
 
 <input
     id="importFile"
     type="file"
-    accept=".dnd,application/json"
+    accept=".dnd,.json"
     style="display:none"
 >
 
 </div>
 
 
-<hr
-    style="
-        border-color:
-        var(--border);
-    "
->
+<hr>
 
 
 <div class="setting">
@@ -795,7 +700,7 @@ Import Daily Data
     id="clearDataButton"
     class="btn danger"
 >
-Reset ALL Daily Data
+    Reset ALL Daily Data
 </button>
 
 <p class="muted">
@@ -806,15 +711,15 @@ It does not delete anything from Spotify.
 </div>
 
 </div>
-
 </div>
 
 
 <script>
 "use strict";
 
+
 /* =========================================================
-   DAILY CONFIGURATION
+   CONFIG
 ========================================================= */
 
 const CLIENT_ID =
@@ -823,122 +728,37 @@ const CLIENT_ID =
 const REDIRECT_URI =
 "https://deadrabbitzstudios-ui.github.io/dailynow/";
 
-const SPOTIFY_SCOPES =
-"user-read-private user-read-email user-library-read";
-
-const DATA_KEY =
-"daily_data_v5";
-
 const TOKEN_KEY =
-"daily_access_token_v5";
+"daily_access_token_v6";
 
 const VERIFIER_KEY =
-"daily_pkce_verifier_v5";
+"daily_pkce_verifier_v6";
+
+const DATA_KEY =
+"daily_data_v6";
+
+
+/*
+These scopes do NOT require Premium.
+
+We intentionally don't request
+streaming/playback scopes.
+*/
+
+const SCOPES =
+"user-read-private user-read-email user-top-read user-library-read";
 
 
 /* =========================================================
-   DATA
+   HELPERS
 ========================================================= */
 
-function defaultData() {
-
-    return {
-
-        version: 5,
-
-        journeys: {},
-
-        history: {},
-
-        ratings: {},
-
-        seenAlbums: [],
-
-        rerolls: {},
-
-        settings: {
-
-            accent:
-            "#2684ff"
-
-        }
-
-    };
-
-}
-
-
-function loadData() {
-
-    try {
-
-        const saved =
-        localStorage.getItem(DATA_KEY);
-
-        if (!saved)
-            return defaultData();
-
-        const parsed =
-        JSON.parse(saved);
-
-        return {
-
-            ...defaultData(),
-
-            ...parsed,
-
-            settings: {
-
-                ...defaultData().settings,
-
-                ...(parsed.settings || {})
-
-            }
-
-        };
-
-    }
-
-    catch(error) {
-
-        console.error(
-            "Daily data load error:",
-            error
-        );
-
-        return defaultData();
-
-    }
-
-}
-
-
-let dailyData =
-loadData();
-
-
-function saveData() {
-
-    localStorage.setItem(
-        DATA_KEY,
-        JSON.stringify(dailyData)
-    );
-
-}
-
-
-/* =========================================================
-   UTILITIES
-========================================================= */
-
-function $(id) {
-
+function $(id){
     return document.getElementById(id);
-
 }
 
 
-function escapeHTML(value) {
+function escapeHTML(value){
 
     return String(value ?? "")
         .replace(/&/g,"&amp;")
@@ -951,45 +771,47 @@ function escapeHTML(value) {
 
 
 /*
-IMPORTANT:
-This was the function missing in your previous version.
+IMPORTANT FIX:
 
-It performs a Fisher-Yates shuffle.
+The old version crashed because shuffle()
+didn't exist.
+
+This is a complete Fisher-Yates shuffle.
 */
 
-function shuffle(array) {
+function shuffle(array){
 
     const result =
-    [...array];
+        [...array];
 
-    for (
-        let i = result.length - 1;
-        i > 0;
+    for(
+        let i=result.length-1;
+        i>0;
         i--
-    ) {
+    ){
 
-        const randomIndex =
-        Math.floor(
-            Math.random() *
-            (i + 1)
-        );
+        const j =
+            Math.floor(
+                Math.random() *
+                (i+1)
+            );
 
         [
             result[i],
-            result[randomIndex]
-        ] = [
-            result[randomIndex],
+            result[j]
+        ] =
+        [
+            result[j],
             result[i]
         ];
 
     }
 
     return result;
-
 }
 
 
-function randomPick(array,count) {
+function pickRandom(array,count){
 
     return shuffle(array)
         .slice(0,count);
@@ -997,7 +819,7 @@ function randomPick(array,count) {
 }
 
 
-function todayKey() {
+function todayKey(){
 
     return new Date()
         .toISOString()
@@ -1006,47 +828,641 @@ function todayKey() {
 }
 
 
-function getWeekKey() {
+function weekKey(){
 
     const date =
-    new Date();
+        new Date();
 
     const year =
-    date.getUTCFullYear();
+        date.getUTCFullYear();
 
     const start =
-    new Date(
         Date.UTC(
             year,
             0,
             1
-        )
-    );
+        );
 
     const day =
-    Math.floor(
-        (
-            date -
-            start
-        ) /
-        86400000
-    );
+        Math.floor(
+            (
+                date.getTime() -
+                start
+            ) /
+            86400000
+        );
 
     const week =
-    Math.floor(
-        (
-            day +
-            start.getUTCDay()
-        ) /
-        7
-    ) + 1;
+        Math.floor(
+            (
+                day +
+                new Date(start)
+                    .getUTCDay()
+            ) / 7
+        ) + 1;
 
     return (
         year +
         "-W" +
         String(week)
-        .padStart(2,"0")
+            .padStart(2,"0")
     );
+
+}
+
+
+/* =========================================================
+   LOCAL DATA
+========================================================= */
+
+function defaultData(){
+
+    return {
+
+        version:6,
+
+        journeys:{},
+
+        history:{},
+
+        ratings:{},
+
+        seenAlbums:[],
+
+        rerolls:{},
+
+        settings:{
+            accent:"#2684ff"
+        }
+
+    };
+
+}
+
+
+function loadData(){
+
+    try{
+
+        const saved =
+            localStorage.getItem(
+                DATA_KEY
+            );
+
+        if(!saved)
+            return defaultData();
+
+        const parsed =
+            JSON.parse(saved);
+
+        const base =
+            defaultData();
+
+        return {
+
+            ...base,
+            ...parsed,
+
+            journeys:
+                parsed.journeys || {},
+
+            history:
+                parsed.history || {},
+
+            ratings:
+                parsed.ratings || {},
+
+            seenAlbums:
+                Array.isArray(
+                    parsed.seenAlbums
+                )
+                ? parsed.seenAlbums
+                : [],
+
+            rerolls:
+                parsed.rerolls || {},
+
+            settings:{
+                ...base.settings,
+                ...(parsed.settings || {})
+            }
+
+        };
+
+    }catch(error){
+
+        console.error(error);
+
+        return defaultData();
+
+    }
+
+}
+
+
+let data =
+    loadData();
+
+
+function saveData(){
+
+    localStorage.setItem(
+        DATA_KEY,
+        JSON.stringify(data)
+    );
+
+}
+
+
+/* =========================================================
+   ERROR SYSTEM
+========================================================= */
+
+function dailyError(
+    code,
+    message,
+    spotify=null
+){
+
+    console.error(
+        "[DAILY]",
+        code,
+        message,
+        spotify
+    );
+
+    let text =
+`Daily Error: ${code}
+
+${message}`;
+
+
+    if(spotify){
+
+        text +=
+`
+
+Spotify Error:
+${spotify.status || "Unknown"} ${
+    spotify.statusText || ""
+}
+
+${
+    spotify.message ||
+    "No additional Spotify error information was provided."
+}`;
+
+    }
+
+
+    $("status")
+        .className =
+        "status error";
+
+
+    $("status")
+        .innerHTML = `
+
+<strong>
+Daily encountered an error.
+</strong>
+
+<div class="error-code">
+${escapeHTML(text)}
+</div>
+
+`;
+
+}
+
+
+/* =========================================================
+   SPOTIFY API
+========================================================= */
+
+let accessToken =
+    localStorage.getItem(
+        TOKEN_KEY
+    );
+
+
+async function spotifyAPI(
+    endpoint,
+    options={}
+){
+
+    if(!accessToken){
+
+        throw {
+
+            dailyCode:
+                "NOT_CONNECTED",
+
+            message:
+                "Spotify is not connected."
+
+        };
+
+    }
+
+
+    let response;
+
+
+    try{
+
+        response =
+            await fetch(
+                "https://api.spotify.com/v1" +
+                endpoint,
+                {
+
+                    ...options,
+
+                    headers:{
+                        Authorization:
+                            "Bearer " +
+                            accessToken,
+
+                        ...(options.headers || {})
+
+                    }
+
+                }
+            );
+
+    }catch(error){
+
+        throw {
+
+            dailyCode:
+                "SPOTIFY_NETWORK_ERROR",
+
+            message:
+                "Daily could not connect to Spotify. Check your internet connection.",
+
+            raw:
+                error.message
+
+        };
+
+    }
+
+
+    const text =
+        await response.text();
+
+
+    let json=null;
+
+
+    try{
+
+        json =
+            text
+            ? JSON.parse(text)
+            : null;
+
+    }catch{
+
+        json=null;
+
+    }
+
+
+    if(!response.ok){
+
+        if(response.status===401){
+
+            localStorage.removeItem(
+                TOKEN_KEY
+            );
+
+            accessToken=null;
+
+        }
+
+
+        throw {
+
+            dailyCode:
+                "SPOTIFY_HTTP_" +
+                response.status,
+
+            message:
+                json?.error?.message ||
+                "Spotify returned an HTTP error.",
+
+            status:
+                response.status,
+
+            statusText:
+                response.statusText,
+
+            raw:
+                text.slice(0,1000)
+
+        };
+
+    }
+
+
+    if(!json){
+
+        throw {
+
+            dailyCode:
+                "SPOTIFY_INVALID_JSON",
+
+            message:
+                "Spotify returned invalid data.",
+
+            status:
+                response.status,
+
+            statusText:
+                response.statusText,
+
+            raw:
+                text.slice(0,1000)
+
+        };
+
+    }
+
+
+    return json;
+
+}
+
+
+/* =========================================================
+   PKCE
+========================================================= */
+
+function base64URL(buffer){
+
+    return btoa(
+        String.fromCharCode(
+            ...new Uint8Array(buffer)
+        )
+    )
+    .replace(/\+/g,"-")
+    .replace(/\//g,"_")
+    .replace(/=+$/,"");
+
+}
+
+
+async function createChallenge(
+    verifier
+){
+
+    const digest =
+        await crypto.subtle.digest(
+            "SHA-256",
+            new TextEncoder()
+                .encode(verifier)
+        );
+
+    return base64URL(digest);
+
+}
+
+
+async function loginSpotify(){
+
+    try{
+
+        const random =
+            crypto.getRandomValues(
+                new Uint8Array(64)
+            );
+
+        const verifier =
+            base64URL(random);
+
+
+        const challenge =
+            await createChallenge(
+                verifier
+            );
+
+
+        localStorage.setItem(
+            VERIFIER_KEY,
+            verifier
+        );
+
+
+        const params =
+            new URLSearchParams({
+
+                client_id:
+                    CLIENT_ID,
+
+                response_type:
+                    "code",
+
+                redirect_uri:
+                    REDIRECT_URI,
+
+                code_challenge_method:
+                    "S256",
+
+                code_challenge:
+                    challenge,
+
+                scope:
+                    SCOPES
+
+            });
+
+
+        window.location.href =
+            "https://accounts.spotify.com/authorize?" +
+            params.toString();
+
+    }catch(error){
+
+        dailyError(
+            "PKCE_LOGIN_ERROR",
+            error.message ||
+            "Could not start Spotify login."
+        );
+
+    }
+
+}
+
+
+/* =========================================================
+   AUTH CALLBACK
+========================================================= */
+
+async function handleCallback(){
+
+    const params =
+        new URLSearchParams(
+            window.location.search
+        );
+
+
+    const error =
+        params.get("error");
+
+    const code =
+        params.get("code");
+
+
+    if(error){
+
+        dailyError(
+            "SPOTIFY_AUTHORIZATION_DENIED",
+            "Spotify denied the authorization request: " +
+            error
+        );
+
+        history.replaceState(
+            {},
+            document.title,
+            REDIRECT_URI
+        );
+
+        return;
+
+    }
+
+
+    if(!code)
+        return;
+
+
+    const verifier =
+        localStorage.getItem(
+            VERIFIER_KEY
+        );
+
+
+    if(!verifier){
+
+        dailyError(
+            "PKCE_VERIFIER_MISSING",
+            "Daily could not find the PKCE verifier used to start Spotify login. Please connect Spotify again."
+        );
+
+        return;
+
+    }
+
+
+    try{
+
+        const response =
+            await fetch(
+                "https://accounts.spotify.com/api/token",
+                {
+
+                    method:"POST",
+
+                    headers:{
+                        "Content-Type":
+                            "application/x-www-form-urlencoded"
+                    },
+
+                    body:
+                        new URLSearchParams({
+
+                            client_id:
+                                CLIENT_ID,
+
+                            grant_type:
+                                "authorization_code",
+
+                            code:
+                                code,
+
+                            redirect_uri:
+                                REDIRECT_URI,
+
+                            code_verifier:
+                                verifier
+
+                        })
+
+                }
+            );
+
+
+        const text =
+            await response.text();
+
+
+        let json=null;
+
+
+        try{
+
+            json =
+                JSON.parse(text);
+
+        }catch{}
+
+
+        if(
+            !response.ok ||
+            !json?.access_token
+        ){
+
+            throw {
+
+                status:
+                    response.status,
+
+                statusText:
+                    response.statusText,
+
+                message:
+                    json?.error_description ||
+                    json?.error ||
+                    "Spotify did not return an access token."
+
+            };
+
+        }
+
+
+        accessToken =
+            json.access_token;
+
+
+        localStorage.setItem(
+            TOKEN_KEY,
+            accessToken
+        );
+
+
+        localStorage.removeItem(
+            VERIFIER_KEY
+        );
+
+
+        history.replaceState(
+            {},
+            document.title,
+            REDIRECT_URI
+        );
+
+
+    }catch(error){
+
+        dailyError(
+            "SPOTIFY_TOKEN_EXCHANGE_FAILED",
+            "Daily could not complete Spotify authorization.",
+            error
+        );
+
+    }
 
 }
 
@@ -1078,7 +1494,7 @@ const GENRES = [
     "new-age",
     "pop",
     "punk",
-    "r&b",
+    "r-n-b",
     "reggae",
     "rock",
     "soul",
@@ -1092,755 +1508,305 @@ const GENRES = [
 ];
 
 
-GENRES.forEach(
-    genre => {
+for(
+    const genre of GENRES
+){
 
-        const option =
+    const option =
         document.createElement(
             "option"
         );
 
-        option.value =
+    option.value =
         genre;
 
-        option.textContent =
+    option.textContent =
         genre
-            .replaceAll("-"," ")
-            .replace(/\b\w/g,c =>
-                c.toUpperCase()
-            );
+        .replaceAll("-"," ")
+        .replace(/\b\w/g,c =>
+            c.toUpperCase()
+        );
 
-        $("genreSelect")
-            .appendChild(option);
-
-    }
-);
-
-
-/* =========================================================
-   ERROR SYSTEM
-========================================================= */
-
-function showError(
-    dailyCode,
-    message,
-    spotifyError = null
-) {
-
-    console.error(
-        "Daily error:",
-        dailyCode,
-        message,
-        spotifyError
-    );
-
-    let html = `
-        <strong>
-            Daily encountered an error.
-        </strong>
-
-        <div class="error-code">
-Daily Error: ${escapeHTML(dailyCode)}
-
-${escapeHTML(message)}
-`;
-
-    if (spotifyError) {
-
-        html += `
-
-Spotify Error:
-${escapeHTML(
-    spotifyError.status || "Unknown"
-)}
-${escapeHTML(
-    spotifyError.statusText || ""
-)}
-
-${escapeHTML(
-    spotifyError.message ||
-    spotifyError.raw ||
-    "No additional Spotify error information was provided."
-)}
-`;
-
-    }
-
-    html += `
-        </div>
-    `;
-
-    $("status")
-        .className =
-        "status error";
-
-    $("status")
-        .innerHTML =
-        html;
+    $("genreSelect")
+        .appendChild(option);
 
 }
 
 
 /* =========================================================
-   SPOTIFY API
+   SEARCH ARTISTS
 ========================================================= */
 
-let accessToken =
-localStorage.getItem(
-    TOKEN_KEY
-);
-
-
-async function spotifyAPI(
-    endpoint,
-    options = {}
-) {
-
-    if (!accessToken) {
-
-        throw {
-
-            dailyCode:
-            "NOT_CONNECTED",
-
-            message:
-            "Spotify is not connected."
-
-        };
-
-    }
-
-
-    const response =
-    await fetch(
-        "https://api.spotify.com/v1" +
-        endpoint,
-        {
-
-            ...options,
-
-            headers: {
-
-                Authorization:
-                "Bearer " +
-                accessToken,
-
-                ...(options.headers || {})
-
-            }
-
-        }
-    );
-
-
-    const text =
-    await response.text();
-
-
-    let json = null;
-
-
-    try {
-
-        json =
-        JSON.parse(text);
-
-    }
-
-    catch {
-
-        json = null;
-
-    }
-
-
-    if (!response.ok) {
-
-        if (
-            response.status ===
-            401
-        ) {
-
-            localStorage.removeItem(
-                TOKEN_KEY
-            );
-
-            accessToken =
-            null;
-
-        }
-
-
-        throw {
-
-            dailyCode:
-            "SPOTIFY_HTTP_" +
-            response.status,
-
-            message:
-            json?.error?.message ||
-            "Spotify returned an error.",
-
-            status:
-            response.status,
-
-            statusText:
-            response.statusText,
-
-            raw:
-            text.slice(0,1000)
-
-        };
-
-    }
-
-
-    if (!json) {
-
-        throw {
-
-            dailyCode:
-            "SPOTIFY_INVALID_DATA",
-
-            message:
-            "Spotify returned invalid data.",
-
-            status:
-            response.status,
-
-            statusText:
-            response.statusText,
-
-            raw:
-            text.slice(0,1000)
-
-        };
-
-    }
-
-
-    return json;
-
-}
-
-
-/* =========================================================
-   PKCE LOGIN
-========================================================= */
-
-function base64URL(
-    buffer
-) {
-
-    return btoa(
-        String.fromCharCode(
-            ...new Uint8Array(buffer)
-        )
-    )
-    .replace(/\+/g,"-")
-    .replace(/\//g,"_")
-    .replace(/=+$/,"");
-
-}
-
-
-async function sha256(
-    text
-) {
-
-    return crypto.subtle.digest(
-        "SHA-256",
-        new TextEncoder()
-            .encode(text)
-    );
-
-}
-
-
-async function loginSpotify() {
-
-    try {
-
-        const verifier =
-        base64URL(
-            crypto.getRandomValues(
-                new Uint8Array(64)
-            )
-        );
-
-
-        const challenge =
-        base64URL(
-            await sha256(
-                verifier
-            )
-        );
-
-
-        localStorage.setItem(
-            VERIFIER_KEY,
-            verifier
-        );
-
-
-        const params =
-        new URLSearchParams({
-
-            client_id:
-            CLIENT_ID,
-
-            response_type:
-            "code",
-
-            redirect_uri:
-            REDIRECT_URI,
-
-            code_challenge_method:
-            "S256",
-
-            code_challenge:
-            challenge,
-
-            scope:
-            SPOTIFY_SCOPES
-
-        });
-
-
-        window.location.href =
-        "https://accounts.spotify.com/authorize?" +
-        params.toString();
-
-    }
-
-    catch(error) {
-
-        showError(
-            "PKCE_LOGIN_ERROR",
-            error.message ||
-            "Could not start Spotify login."
-        );
-
-    }
-
-}
-
-
-/* =========================================================
-   CALLBACK
-========================================================= */
-
-async function handleSpotifyCallback() {
-
-    const params =
-    new URLSearchParams(
-        window.location.search
-    );
-
-
-    const error =
-    params.get("error");
-
-    const code =
-    params.get("code");
-
-
-    if (error) {
-
-        showError(
-            "SPOTIFY_AUTHORIZATION_DENIED",
-            "Spotify denied access: " +
-            error
-        );
-
-        history.replaceState(
-            {},
-            document.title,
-            REDIRECT_URI
-        );
-
-        return;
-
-    }
-
-
-    if (!code)
-        return;
-
-
-    const verifier =
-    localStorage.getItem(
-        VERIFIER_KEY
-    );
-
-
-    if (!verifier) {
-
-        showError(
-            "PKCE_VERIFIER_MISSING",
-            "Daily lost the Spotify login verifier. Please connect Spotify again."
-        );
-
-        return;
-
-    }
-
-
-    try {
-
-        const response =
-        await fetch(
-            "https://accounts.spotify.com/api/token",
-            {
-
-                method:
-                "POST",
-
-                headers: {
-
-                    "Content-Type":
-                    "application/x-www-form-urlencoded"
-
-                },
-
-                body:
-                new URLSearchParams({
-
-                    client_id:
-                    CLIENT_ID,
-
-                    grant_type:
-                    "authorization_code",
-
-                    code:
-                    code,
-
-                    redirect_uri:
-                    REDIRECT_URI,
-
-                    code_verifier:
-                    verifier
-
-                })
-
-            }
-        );
-
-
-        const text =
-        await response.text();
-
-
-        let json = null;
-
-
-        try {
-
-            json =
-            JSON.parse(text);
-
-        }
-
-        catch {
-
-            json = null;
-
-        }
-
-
-        if (
-            !response.ok ||
-            !json?.access_token
-        ) {
-
-            throw {
-
-                status:
-                response.status,
-
-                statusText:
-                response.statusText,
-
-                message:
-                json?.error_description ||
-                json?.error ||
-                "Spotify did not provide an access token.",
-
-                raw:
-                text
-
-            };
-
-        }
-
-
-        accessToken =
-        json.access_token;
-
-
-        localStorage.setItem(
-            TOKEN_KEY,
-            accessToken
-        );
-
-
-        localStorage.removeItem(
-            VERIFIER_KEY
-        );
-
-
-        history.replaceState(
-            {},
-            document.title,
-            REDIRECT_URI
-        );
-
-
-    }
-
-    catch(error) {
-
-        showError(
-            "SPOTIFY_TOKEN_EXCHANGE_FAILED",
-            "Daily could not exchange the authorization code for a Spotify token.",
-            error
-        );
-
-    }
-
-}
-
-
-/* =========================================================
-   ALBUM DISCOVERY
-========================================================= */
-
-async function getGenreArtists(
+/*
+Spotify now limits search requests to
+10 results.
+
+Instead of requesting 50 at once,
+we request five pages of 10.
+*/
+
+async function searchArtists(
     genre
-) {
-
-    /*
-    Spotify's search endpoint is used here
-    instead of pretending every album has
-    a Spotify genre directly.
-    */
+){
 
     const query =
-    genre
-    ? `genre:"${genre}"`
-    : "year:2020-2026";
-
-
-    const params =
-    new URLSearchParams({
-
-        q:
-        query,
-
-        type:
-        "artist",
-
-        limit:
-        "50"
-
-    });
-
-
-    const result =
-    await spotifyAPI(
-        "/search?" +
-        params.toString()
-    );
-
-
-    return (
-        result
-            .artists
-            ?.items ||
-        []
-    );
-
-}
-
-
-async function collectAlbums(
-    genre
-) {
-
-    const artists =
-    await getGenreArtists(
         genre
-    );
+        ? `genre:"${genre}"`
+        : "year:2020-2026";
 
 
-    if (!artists.length) {
-
-        throw {
-
-            dailyCode:
-            "NO_GENRE_RESULTS",
-
-            message:
-            `Spotify returned no artists for the "${genre}" genre.`
-
-        };
-
-    }
+    let artists=[];
 
 
-    /*
-    Randomize artists before
-    requesting albums.
-    */
+    for(
+        let offset=0;
+        offset<50;
+        offset+=10
+    ){
 
-    const shuffledArtists =
-    shuffle(artists);
-
-
-    let albums = [];
-
-
-    for (
-        const artist
-        of shuffledArtists.slice(
-            0,
-            20
-        )
-    ) {
-
-        try {
-
-            const params =
+        const params =
             new URLSearchParams({
 
-                include_groups:
-                "album",
+                q:
+                    query,
+
+                type:
+                    "artist",
 
                 limit:
-                "20",
+                    "10",
 
-                market:
-                "US"
+                offset:
+                    String(offset)
 
             });
 
 
-            const result =
+        const result =
             await spotifyAPI(
-                "/artists/" +
-                encodeURIComponent(
-                    artist.id
-                ) +
-                "/albums?" +
+                "/search?" +
                 params.toString()
             );
 
 
-            for (
-                const album
-                of result.items || []
-            ) {
-
-                if (
-                    !album.id ||
-                    !album.images?.length
-                )
-                    continue;
+        const batch =
+            result
+            .artists
+            ?.items || [];
 
 
-                albums.push({
-
-                    id:
-                    album.id,
-
-                    name:
-                    album.name,
-
-                    artist:
-                    album.artists?.[0]
-                        ?.name ||
-                    artist.name,
-
-                    artistId:
-                    artist.id,
-
-                    image:
-                    album.images[0].url,
-
-                    releaseDate:
-                    album.release_date,
-
-                    url:
-                    album.external_urls
-                        ?.spotify ||
-                    `https://open.spotify.com/album/${album.id}`,
-
-                    genres:
-                    artist.genres || []
-
-                });
-
-            }
+        artists.push(
+            ...batch
+        );
 
 
-        }
+        if(
+            batch.length < 10
+        )
+            break;
 
-        catch(error) {
+    }
+
+
+    const unique =
+        new Map();
+
+
+    for(
+        const artist
+        of artists
+    ){
+
+        if(!artist?.id)
+            continue;
+
+        unique.set(
+            artist.id,
+            artist
+        );
+
+    }
+
+
+    return [
+        ...unique.values()
+    ];
+
+}
+
+
+/* =========================================================
+   ARTIST ALBUMS
+========================================================= */
+
+async function getArtistAlbums(
+    artist
+){
+
+    const params =
+        new URLSearchParams({
+
+            include_groups:
+                "album",
+
+            limit:
+                "10",
+
+            market:
+                "US"
+
+        });
+
+
+    const result =
+        await spotifyAPI(
+            "/artists/" +
+            encodeURIComponent(
+                artist.id
+            ) +
+            "/albums?" +
+            params.toString()
+        );
+
+
+    return (
+        result.items || []
+    )
+    .filter(
+        album =>
+            album.album_type ===
+            "album"
+    )
+    .map(
+        album => ({
+
+            id:
+                album.id,
+
+            name:
+                album.name,
+
+            artist:
+                album.artists?.[0]
+                    ?.name ||
+                artist.name,
+
+            image:
+                album.images?.[0]
+                    ?.url ||
+                "",
+
+            releaseDate:
+                album.release_date ||
+                "",
+
+            url:
+                album.external_urls
+                    ?.spotify ||
+                `https://open.spotify.com/album/${album.id}`,
+
+            artistGenres:
+                artist.genres || []
+
+        })
+    );
+
+}
+
+
+/* =========================================================
+   COLLECT CANDIDATES
+========================================================= */
+
+async function collectCandidates(
+    genre
+){
+
+    const artists =
+        await searchArtists(
+            genre
+        );
+
+
+    if(!artists.length){
+
+        throw {
+
+            dailyCode:
+                "NO_ARTISTS_FOUND",
+
+            message:
+                `Spotify returned no artists for "${genre || "Any Genre"}".`
+
+        };
+
+    }
+
+
+    /*
+    Randomize the artists so Daily does
+    not always start with the same ones.
+    */
+
+    const randomizedArtists =
+        shuffle(
+            artists
+        );
+
+
+    let albums=[];
+
+
+    /*
+    We use 15 artists at most.
+    */
+
+    for(
+        const artist of
+        randomizedArtists.slice(0,15)
+    ){
+
+        try{
+
+            const artistAlbums =
+                await getArtistAlbums(
+                    artist
+                );
+
+            albums.push(
+                ...artistAlbums
+            );
+
+        }catch(error){
 
             console.warn(
-                "Could not load albums for artist:",
+                "Album request failed:",
                 artist.name,
                 error
             );
 
         }
 
-
-        if (albums.length >= 100)
-            break;
-
     }
 
 
-    return albums;
-
-}
-
-
-/* =========================================================
-   NO REPEATS
-========================================================= */
-
-function removePreviouslySeen(
-    albums
-) {
-
-    const seen =
-    new Set(
-        dailyData.seenAlbums
-    );
-
+    /*
+    Remove duplicate albums.
+    */
 
     const unique =
-    new Map();
+        new Map();
 
 
-    for (
-        const album
-        of shuffle(albums)
-    ) {
+    for(
+        const album of albums
+    ){
 
-        if (
-            seen.has(album.id)
+        if(
+            !album.id ||
+            !album.image
         )
             continue;
-
-
-        if (
-            unique.has(album.id)
-        )
-            continue;
-
 
         unique.set(
             album.id,
@@ -1858,18 +1824,85 @@ function removePreviouslySeen(
 
 
 /* =========================================================
-   CREATE DAILY
+   FILTER GENRE
+========================================================= */
+
+function genreMatches(
+    album,
+    selectedGenre
+){
+
+    if(!selectedGenre)
+        return true;
+
+
+    const wanted =
+        selectedGenre
+        .toLowerCase()
+        .replaceAll("-"," ");
+
+
+    const genres =
+        album.artistGenres || [];
+
+
+    return genres.some(
+        genre => {
+
+            const normalized =
+                genre
+                .toLowerCase()
+                .replaceAll("-"," ");
+
+            return (
+                normalized === wanted ||
+                normalized.includes(wanted) ||
+                wanted.includes(normalized)
+            );
+
+        }
+    );
+
+}
+
+
+/* =========================================================
+   REMOVE SEEN
+========================================================= */
+
+function removeSeen(
+    albums
+){
+
+    const seen =
+        new Set(
+            data.seenAlbums
+        );
+
+
+    return albums.filter(
+        album =>
+            !seen.has(
+                album.id
+            )
+    );
+
+}
+
+
+/* =========================================================
+   GENERATE DAILY
 ========================================================= */
 
 async function generateDaily(
-    force = false
-) {
+    force=false
+){
 
-    if (!accessToken) {
+    if(!accessToken){
 
-        showError(
+        dailyError(
             "NOT_CONNECTED",
-            "Connect Spotify before generating your Daily."
+            "Connect your Spotify account before creating a Daily."
         );
 
         return;
@@ -1877,17 +1910,17 @@ async function generateDaily(
     }
 
 
-    const key =
-    todayKey();
+    const date =
+        todayKey();
 
 
-    if (
-        dailyData.journeys[key] &&
+    if(
+        data.journeys[date] &&
         !force
-    ) {
+    ){
 
         renderJourney(
-            dailyData.journeys[key]
+            data.journeys[date]
         );
 
         return;
@@ -1896,52 +1929,68 @@ async function generateDaily(
 
 
     $("generateButton")
-        .disabled = true;
+        .disabled=true;
 
     $("rerollButton")
-        .disabled = true;
+        .disabled=true;
 
 
     $("status")
-        .className =
+        .className=
         "status";
 
 
     $("status")
-        .textContent =
-        "Daily is finding your three albums…";
+        .textContent=
+        "Daily is searching Spotify for something good…";
 
 
-    try {
+    try{
 
-        const genre =
-        $("genreSelect")
-            .value;
+        const selectedGenre =
+            $("genreSelect")
+                .value;
 
 
         let candidates =
-        await collectAlbums(
-            genre
-        );
+            await collectCandidates(
+                selectedGenre
+            );
+
+
+        /*
+        Apply the selected genre again
+        after receiving the actual artist
+        metadata.
+        */
+
+        candidates =
+            candidates.filter(
+                album =>
+                    genreMatches(
+                        album,
+                        selectedGenre
+                    )
+            );
 
 
         candidates =
-        removePreviouslySeen(
-            candidates
-        );
+            removeSeen(
+                candidates
+            );
 
 
-        if (
+        if(
             candidates.length < 3
-        ) {
+        ){
 
             throw {
 
                 dailyCode:
-                "NOT_ENOUGH_NEW_ALBUMS",
+                    "NOT_ENOUGH_NEW_ALBUMS",
 
                 message:
-                "Daily could not find three new albums without repeating one you have already received. Try another genre."
+                    "Spotify did not provide three new albums matching this genre. Try Any Genre or another genre."
 
             };
 
@@ -1949,72 +1998,81 @@ async function generateDaily(
 
 
         /*
-        Multiple randomization passes.
-
-        This means we're not simply taking
-        the first three Spotify results.
+        Multiple shuffle passes make the
+        selection less deterministic.
         */
 
         candidates =
-        shuffle(candidates);
+            shuffle(candidates);
 
         candidates =
-        shuffle(candidates);
+            shuffle(candidates);
 
         candidates =
-        shuffle(candidates);
+            shuffle(candidates);
 
 
         const selected =
-        randomPick(
-            candidates,
-            3
-        );
+            pickRandom(
+                candidates,
+                3
+            );
 
 
         const albums =
-        selected.map(
-            album => ({
+            selected.map(
+                album => ({
 
-                ...album,
+                    ...album,
 
-                completed:
-                false,
+                    completed:false,
 
-                completedAt:
-                null
+                    completedAt:null
 
-            })
-        );
+                })
+            );
 
 
-        dailyData.journeys[key] = {
+        data.journeys[date]={
 
             date:
-            key,
+
+                date,
 
             genre:
-            genre ||
-            "Any Genre",
+
+                selectedGenre ||
+                "Any Genre",
 
             albums:
 
-            albums,
+                albums,
 
             createdAt:
-            new Date()
-                .toISOString()
+
+                new Date()
+                    .toISOString()
 
         };
 
 
-        for (
-            const album
-            of albums
-        ) {
+        for(
+            const album of albums
+        ){
 
-            dailyData.seenAlbums
-                .push(album.id);
+            if(
+                !data.seenAlbums
+                    .includes(
+                        album.id
+                    )
+            ){
+
+                data.seenAlbums
+                    .push(
+                        album.id
+                    );
+
+            }
 
         }
 
@@ -2023,54 +2081,46 @@ async function generateDaily(
 
 
         renderJourney(
-            dailyData.journeys[key]
+            data.journeys[date]
         );
 
 
         renderHistory();
-
         renderCalendar();
 
 
         $("status")
-            .className =
+            .className=
             "status success";
 
 
         $("status")
-            .textContent =
-            "Your Daily is ready. Finish all three albums to complete the journey.";
+            .textContent=
+            "Daily created — three albums waiting for you.";
 
-    }
+    }catch(error){
 
-
-    catch(error) {
-
-        showError(
+        dailyError(
             error.dailyCode ||
-            "DAILY_DISCOVERY_ERROR",
+            "DAILY_GENERATION_ERROR",
 
             error.message ||
-            "Daily could not find albums.",
+            "Daily could not create your journey.",
 
             error.status
             ? error
             : null
-
         );
 
-    }
-
-
-    finally {
+    }finally{
 
         $("generateButton")
-            .disabled = false;
+            .disabled=false;
 
         $("rerollButton")
-            .disabled = false;
+            .disabled=false;
 
-        updateRerollCounter();
+        updateRerolls();
 
     }
 
@@ -2078,22 +2128,22 @@ async function generateDaily(
 
 
 /* =========================================================
-   RENDER ALBUMS
+   RENDER JOURNEY
 ========================================================= */
 
 function renderJourney(
     journey
-) {
+){
 
-    if (
+    if(
         !journey ||
         !journey.albums?.length
-    ) {
+    ){
 
         $("albumGrid")
-            .innerHTML = `
+            .innerHTML=`
                 <div class="empty">
-                    Generate your Daily to get three albums.
+                    No Daily loaded.
                 </div>
             `;
 
@@ -2103,34 +2153,34 @@ function renderJourney(
 
 
     $("subtitle")
-        .textContent =
+        .textContent=
         `${journey.genre} • ${journey.date}`;
 
 
     $("albumGrid")
-        .innerHTML = "";
+        .innerHTML="";
 
 
     journey.albums.forEach(
-        (album,index) => {
+        (album,index)=>{
 
             const rating =
-            dailyData.ratings[
-                album.id
-            ]?.stars || 0;
+                data.ratings[
+                    album.id
+                ]?.stars || 0;
 
 
             const card =
-            document.createElement(
-                "article"
-            );
+                document.createElement(
+                    "article"
+                );
 
 
-            card.className =
-            "album-card";
+            card.className=
+                "album-card";
 
 
-            card.innerHTML = `
+            card.innerHTML=`
 
                 <img
                     class="album-cover"
@@ -2141,7 +2191,7 @@ function renderJourney(
                 <div class="album-content">
 
                     <div class="album-number">
-                        ALBUM ${index + 1}
+                        ALBUM ${index+1}
                         ${
                             album.completed
                             ? " • COMPLETED"
@@ -2167,7 +2217,7 @@ function renderJourney(
                         <br>
 
                         ${
-                            (album.genres || [])
+                            (album.artistGenres||[])
                             .slice(0,5)
                             .map(
                                 genre =>
@@ -2182,37 +2232,40 @@ function renderJourney(
 
                     <div class="stars">
 
-                        ${[1,2,3,4,5]
-                        .map(
-                            number => `
-
-                            <button
-                                class="star ${
-                                    number <= rating
-                                    ? "active"
-                                    : ""
-                                }"
-                                data-rating="${number}"
-                            >
-                                ★
-                            </button>
-
-                            `
-                        )
-                        .join("")}
+                        ${
+                            [1,2,3,4,5]
+                            .map(
+                                star =>
+                                `
+                                <button
+                                    class="star ${
+                                        star<=rating
+                                        ? "active"
+                                        : ""
+                                    }"
+                                    data-star="${star}"
+                                >
+                                    ★
+                                </button>
+                                `
+                            )
+                            .join("")
+                        }
 
                     </div>
 
                     <div class="album-actions">
 
                         <button
-                            class="btn primary openSpotify"
+                            class="btn primary"
+                            data-open
                         >
                             Open in Spotify
                         </button>
 
                         <button
-                            class="btn completeAlbum"
+                            class="btn"
+                            data-complete
                         >
                             ${
                                 album.completed
@@ -2224,56 +2277,56 @@ function renderJourney(
                     </div>
 
                 </div>
+
             `;
 
 
             card.querySelector(
-                ".openSpotify"
-            ).onclick = () => {
-
-                window.open(
-                    album.url,
-                    "_blank",
-                    "noopener,noreferrer"
-                );
-
-            };
+                "[data-open]"
+            ).onclick=
+                ()=>{
+                    window.open(
+                        album.url,
+                        "_blank",
+                        "noopener,noreferrer"
+                    );
+                };
 
 
             card.querySelector(
-                ".completeAlbum"
-            ).onclick = () => {
-
-                toggleAlbumComplete(
-                    journey.date,
-                    album.id
-                );
-
-            };
+                "[data-complete]"
+            ).onclick=
+                ()=>{
+                    toggleComplete(
+                        journey.date,
+                        album.id
+                    );
+                };
 
 
             card.querySelectorAll(
-                "[data-rating]"
+                "[data-star]"
             ).forEach(
-                button => {
+                button=>{
 
-                    button.onclick = () => {
-
-                        rateAlbum(
-                            album.id,
-                            Number(
-                                button.dataset.rating
-                            )
-                        );
-
-                    };
+                    button.onclick=
+                        ()=>{
+                            rateAlbum(
+                                album.id,
+                                Number(
+                                    button.dataset.star
+                                )
+                            );
+                        };
 
                 }
             );
 
 
             $("albumGrid")
-                .appendChild(card);
+                .appendChild(
+                    card
+                );
 
         }
     );
@@ -2282,56 +2335,58 @@ function renderJourney(
 
 
 /* =========================================================
-   COMPLETE ALBUM
+   COMPLETE
 ========================================================= */
 
-function toggleAlbumComplete(
+function toggleComplete(
     date,
     albumID
-) {
+){
 
     const journey =
-    dailyData.journeys[date];
+        data.journeys[
+            date
+        ];
 
 
-    if (!journey)
+    if(!journey)
         return;
 
 
     const album =
-    journey.albums.find(
-        item =>
-        item.id === albumID
-    );
+        journey.albums.find(
+            item =>
+                item.id===albumID
+        );
 
 
-    if (!album)
+    if(!album)
         return;
 
 
     album.completed =
-    !album.completed;
+        !album.completed;
 
 
     album.completedAt =
-    album.completed
-    ? new Date().toISOString()
-    : null;
+        album.completed
+        ? new Date().toISOString()
+        : null;
 
 
-    dailyData.history[
+    data.history[
         album.id
-    ] = {
+    ]={
 
         ...album,
 
         dailyDate:
-        date,
+            date,
 
         rating:
-        dailyData.ratings[
-            album.id
-        ]?.stars || 0
+            data.ratings[
+                album.id
+            ]?.stars || 0
 
     };
 
@@ -2344,25 +2399,24 @@ function toggleAlbumComplete(
     );
 
     renderHistory();
-
     renderCalendar();
 
 
-    if (
+    if(
         journey.albums.every(
-            album =>
-            album.completed
+            item =>
+                item.completed
         )
-    ) {
+    ){
 
         $("status")
-            .className =
+            .className=
             "status success";
 
 
         $("status")
-            .textContent =
-            "Journey complete! You can now move on to the next Daily.";
+            .textContent=
+            "Journey complete! 🎉";
 
     }
 
@@ -2370,22 +2424,22 @@ function toggleAlbumComplete(
 
 
 /* =========================================================
-   RATINGS
+   RATING
 ========================================================= */
 
 function rateAlbum(
     albumID,
     stars
-) {
+){
 
-    if (
-        stars < 1 ||
-        stars > 5
-    ) {
+    if(
+        stars<1 ||
+        stars>5
+    ){
 
-        showError(
+        dailyError(
             "INVALID_RATING",
-            "Album ratings must be between 1 and 5 stars."
+            "Ratings must be between 1 and 5 stars."
         );
 
         return;
@@ -2393,29 +2447,29 @@ function rateAlbum(
     }
 
 
-    dailyData.ratings[
+    data.ratings[
         albumID
-    ] = {
+    ]={
 
         stars:
-        stars,
+            stars,
 
         ratedAt:
-        new Date().toISOString()
+            new Date().toISOString()
 
     };
 
 
-    if (
-        dailyData.history[
+    if(
+        data.history[
             albumID
         ]
-    ) {
+    ){
 
-        dailyData.history[
+        data.history[
             albumID
-        ].rating =
-        stars;
+        ].rating=
+            stars;
 
     }
 
@@ -2424,13 +2478,15 @@ function rateAlbum(
 
 
     const journey =
-    dailyData.journeys[
-        todayKey()
-    ];
+        data.journeys[
+            todayKey()
+        ];
 
 
-    if (journey)
-        renderJourney(journey);
+    if(journey)
+        renderJourney(
+            journey
+        );
 
 
     renderHistory();
@@ -2442,52 +2498,51 @@ function rateAlbum(
    REROLLS
 ========================================================= */
 
-function updateRerollCounter() {
+function updateRerolls(){
 
     const week =
-    getWeekKey();
+        weekKey();
 
 
     const used =
-    dailyData.rerolls[
-        week
-    ] || 0;
+        data.rerolls[
+            week
+        ] || 0;
 
 
     const remaining =
-    Math.max(
-        0,
-        3 - used
-    );
+        Math.max(
+            0,
+            3-used
+        );
 
 
     $("rerollCount")
-        .textContent =
+        .textContent=
         remaining;
-
 
 }
 
 
-async function rerollDaily() {
+async function reroll(){
 
     const week =
-    getWeekKey();
+        weekKey();
 
 
     const used =
-    dailyData.rerolls[
-        week
-    ] || 0;
+        data.rerolls[
+            week
+        ] || 0;
 
 
-    if (
-        used >= 3
-    ) {
+    if(
+        used>=3
+    ){
 
-        showError(
+        dailyError(
             "REROLL_LIMIT_REACHED",
-            "You have used all three rerolls for this week."
+            "You have used all 3 rerolls for this week."
         );
 
         return;
@@ -2495,25 +2550,17 @@ async function rerollDaily() {
     }
 
 
-    dailyData.rerolls[
+    data.rerolls[
         week
-    ] =
-    used + 1;
+    ]=
+        used+1;
 
 
     saveData();
 
 
-    updateRerollCounter();
+    updateRerolls();
 
-
-    /*
-    The old albums are deliberately NOT
-    removed from seenAlbums.
-
-    Once Daily gives you an album,
-    it is considered seen forever.
-    */
 
     await generateDaily(
         true
@@ -2526,52 +2573,58 @@ async function rerollDaily() {
    RESET TODAY
 ========================================================= */
 
-function resetToday() {
+function resetToday(){
 
-    const key =
-    todayKey();
+    const date =
+        todayKey();
 
 
     const journey =
-    dailyData.journeys[
-        key
-    ];
+        data.journeys[
+            date
+        ];
 
 
-    if (!journey)
+    if(!journey){
+
+        $("status")
+            .textContent=
+            "There is no Daily to reset today.";
+
+        return;
+
+    }
+
+
+    if(
+        !confirm(
+            "Reset today's Daily?"
+        )
+    )
         return;
 
 
-    for (
-        const album
-        of journey.albums
-    ) {
+    for(
+        const album of
+        journey.albums
+    ){
 
-        /*
-        Resetting today should let the
-        album be discovered again.
-
-        This is why its ID gets removed
-        from seenAlbums.
-        */
-
-        dailyData.seenAlbums =
-        dailyData.seenAlbums
+        data.seenAlbums =
+            data.seenAlbums
             .filter(
                 id =>
-                id !== album.id
+                    id!==album.id
             );
 
-
-        delete dailyData.history[
+        delete data.history[
             album.id
         ];
 
     }
 
 
-    delete dailyData.journeys[
-        key
+    delete data.journeys[
+        date
     ];
 
 
@@ -2579,21 +2632,21 @@ function resetToday() {
 
 
     $("albumGrid")
-        .innerHTML = `
+        .innerHTML=`
             <div class="empty">
                 Today's Daily has been reset.
-                Generate a new one whenever you're ready.
+                You can generate another one.
             </div>
         `;
 
 
     $("status")
-        .className =
+        .className=
         "status";
 
 
     $("status")
-        .textContent =
+        .textContent=
         "Today's Daily has been reset.";
 
 }
@@ -2603,32 +2656,33 @@ function resetToday() {
    HISTORY
 ========================================================= */
 
-function renderHistory() {
+function renderHistory(){
 
     const items =
-    Object.values(
-        dailyData.history
-    )
-    .sort(
-        (a,b) =>
-        (
-            b.completedAt ||
-            b.dailyDate ||
-            ""
-        ).localeCompare(
-            a.completedAt ||
-            a.dailyDate ||
-            ""
+        Object.values(
+            data.history
         )
-    );
+        .sort(
+            (a,b)=>
+                (
+                    b.completedAt ||
+                    b.dailyDate ||
+                    ""
+                )
+                .localeCompare(
+                    a.completedAt ||
+                    a.dailyDate ||
+                    ""
+                )
+        );
 
 
-    if (!items.length) {
+    if(!items.length){
 
         $("history")
-            .innerHTML = `
+            .innerHTML=`
                 <div class="empty">
-                    Complete an album and it will appear here.
+                    Your completed albums will appear here.
                 </div>
             `;
 
@@ -2638,15 +2692,14 @@ function renderHistory() {
 
 
     $("history")
-        .innerHTML =
-        items
-        .map(
-            album => {
+        .innerHTML=
+        items.map(
+            album=>{
 
                 const rating =
-                dailyData.ratings[
-                    album.id
-                ]?.stars || 0;
+                    data.ratings[
+                        album.id
+                    ]?.stars || 0;
 
 
                 return `
@@ -2682,6 +2735,7 @@ function renderHistory() {
                         </div>
 
                         <div>
+
                             ${
                                 album.completed
                                 ? "✓ Completed"
@@ -2693,13 +2747,14 @@ function renderHistory() {
                                 ? ` • ★ ${rating}/5`
                                 : ""
                             }
+
                         </div>
 
                     </div>
 
                     <button
-                        class="btn ratePrevious"
-                        data-id="${escapeHTML(
+                        class="btn"
+                        data-rate-history="${escapeHTML(
                             album.id
                         )}"
                     >
@@ -2716,89 +2771,78 @@ function renderHistory() {
 
 
     document
-    .querySelectorAll(
-        ".ratePrevious"
-    )
-    .forEach(
-        button => {
+        .querySelectorAll(
+            "[data-rate-history]"
+        )
+        .forEach(
+            button=>{
 
-            button.onclick = () => {
+                button.onclick=
+                    ()=>{
 
-                ratePreviousAlbum(
-                    button.dataset.id
-                );
+                        const album =
+                            data.history[
+                                button
+                                .dataset
+                                .rateHistory
+                            ];
 
-            };
-
-        }
-    );
-
-}
-
-
-/* =========================================================
-   RATE PREVIOUS ALBUM
-========================================================= */
-
-function ratePreviousAlbum(
-    albumID
-) {
-
-    const album =
-    dailyData.history[
-        albumID
-    ];
+                        if(!album)
+                            return;
 
 
-    if (!album)
-        return;
+                        const current =
+                            data.ratings[
+                                album.id
+                            ]?.stars || "";
 
 
-    const current =
-    dailyData.ratings[
-        albumID
-    ]?.stars || "";
+                        const answer =
+                            prompt(
+                                `Rate "${album.name}" from 1 to 5.`,
+                                current
+                            );
 
 
-    const value =
-    prompt(
-        `Rate "${album.name}" from 1 to 5 stars.`,
-        current
-    );
+                        if(
+                            answer===null
+                        )
+                            return;
 
 
-    if (
-        value === null
-    )
-        return;
+                        const rating =
+                            Number(
+                                answer
+                            );
 
 
-    const rating =
-    Number(value);
+                        if(
+                            !Number.isInteger(
+                                rating
+                            ) ||
+                            rating<1 ||
+                            rating>5
+                        ){
+
+                            dailyError(
+                                "INVALID_RATING",
+                                "Please enter a whole number from 1 to 5."
+                            );
+
+                            return;
+
+                        }
 
 
-    if (
-        !Number.isInteger(
-            rating
-        ) ||
-        rating < 1 ||
-        rating > 5
-    ) {
+                        rateAlbum(
+                            album.id,
+                            rating
+                        );
 
-        showError(
-            "INVALID_RATING",
-            "Please enter a whole number from 1 to 5."
+                    };
+
+            }
         );
-
-        return;
-
-    }
-
-
-    rateAlbum(
-        albumID,
-        rating
-    );
 
 }
 
@@ -2808,52 +2852,48 @@ function ratePreviousAlbum(
 ========================================================= */
 
 let calendarDate =
-new Date();
+    new Date();
 
 
-function renderCalendar() {
+function renderCalendar(){
 
     const year =
-    calendarDate
+        calendarDate
         .getFullYear();
 
-
     const month =
-    calendarDate
+        calendarDate
         .getMonth();
 
 
     $("monthTitle")
-        .textContent =
+        .textContent=
         calendarDate.toLocaleString(
             undefined,
             {
-                month:
-                "long",
-
-                year:
-                "numeric"
+                month:"long",
+                year:"numeric"
             }
         );
 
 
-    const firstDay =
-    new Date(
-        year,
-        month,
-        1
-    );
+    const first =
+        new Date(
+            year,
+            month,
+            1
+        );
 
 
-    const lastDay =
-    new Date(
-        year,
-        month + 1,
-        0
-    );
+    const last =
+        new Date(
+            year,
+            month+1,
+            0
+        );
 
 
-    let html = "";
+    let html="";
 
 
     [
@@ -2864,73 +2904,70 @@ function renderCalendar() {
         "Thu",
         "Fri",
         "Sat"
-    ].forEach(
-        day => {
-
-            html += `
+    ]
+    .forEach(
+        day=>{
+            html+=`
                 <div class="muted">
                     <strong>
                         ${day}
                     </strong>
                 </div>
             `;
-
         }
     );
 
 
-    for (
-        let i = 0;
-        i < firstDay.getDay();
+    for(
+        let i=0;
+        i<first.getDay();
         i++
-    ) {
+    ){
 
-        html +=
-        "<div></div>";
+        html+=
+            "<div></div>";
 
     }
 
 
-    for (
-        let day = 1;
-        day <= lastDay.getDate();
+    for(
+        let day=1;
+        day<=last.getDate();
         day++
-    ) {
+    ){
 
         const date =
-        `${year}-${
-            String(month + 1)
-                .padStart(2,"0")
-        }-${
-            String(day)
-                .padStart(2,"0")
-        }`;
-
-
-        const completed =
-        Object.values(
-            dailyData.history
-        )
-        .filter(
-            album =>
-            album.dailyDate === date &&
-            album.completed
-        );
+            `${year}-${String(month+1)
+                .padStart(2,"0")}-${String(day)
+                .padStart(2,"0")}`;
 
 
         const journey =
-        dailyData.journeys[
-            date
-        ];
+            data.journeys[
+                date
+            ];
 
 
-        html += `
+        const completed =
+            Object.values(
+                data.history
+            )
+            .filter(
+                album =>
+                    album.dailyDate===date &&
+                    album.completed
+            );
 
-            <div class="calendar-day ${
-                completed.length
-                ? "completed"
-                : ""
-            }">
+
+        html+=`
+
+            <div
+                class="calendar-day ${
+                    completed.length
+                    ? "completed"
+                    : ""
+                }"
+            >
 
                 <div class="calendar-day-number">
                     ${day}
@@ -2940,7 +2977,9 @@ function renderCalendar() {
                     journey
                     ? `
                         <div class="muted">
-                            Daily
+                            ${escapeHTML(
+                                journey.genre
+                            )}
                         </div>
                     `
                     : ""
@@ -2950,7 +2989,6 @@ function renderCalendar() {
                     completed.length
                     ? `
                         <div class="calendar-dot"></div>
-
                         <div>
                             ${completed.length}
                             finished
@@ -2960,89 +2998,89 @@ function renderCalendar() {
                 }
 
             </div>
+
         `;
 
     }
 
 
     $("calendar")
-        .innerHTML =
+        .innerHTML=
         html;
 
 }
 
 
 /* =========================================================
-   .DND EXPORT
+   EXPORT DND
 ========================================================= */
 
-function exportDND() {
+function exportDND(){
 
-    const file = {
+    const file={
 
         format:
-        "DAILY_DND",
+            "DAILY_DND",
 
         version:
-        5,
+            6,
 
         application:
-        "Daily",
+            "Daily",
 
         exportedAt:
-        new Date()
+            new Date()
             .toISOString(),
 
         data:
-        dailyData
+            data
 
     };
 
 
     const blob =
-    new Blob(
-        [
-            JSON.stringify(
-                file,
-                null,
-                2
-            )
-        ],
-        {
-            type:
-            "application/json"
-        }
-    );
+        new Blob(
+            [
+                JSON.stringify(
+                    file,
+                    null,
+                    2
+                )
+            ],
+            {
+                type:
+                    "application/json"
+            }
+        );
 
 
     const url =
-    URL.createObjectURL(
-        blob
-    );
+        URL.createObjectURL(
+            blob
+        );
 
 
-    const link =
-    document.createElement(
-        "a"
-    );
+    const a =
+        document.createElement(
+            "a"
+        );
 
 
-    link.href =
-    url;
+    a.href=
+        url;
 
-
-    link.download =
-    `Daily-${todayKey()}.dnd`;
+    a.download=
+        `Daily-${todayKey()}.dnd`;
 
 
     document.body
-        .appendChild(link);
+        .appendChild(a);
 
 
-    link.click();
+    a.click();
 
 
-    link.remove();
+    a.remove();
 
 
     URL.revokeObjectURL(
@@ -3053,101 +3091,95 @@ function exportDND() {
 
 
 /* =========================================================
-   .DND IMPORT
+   IMPORT DND
 ========================================================= */
 
-function importDND(
-    file
-) {
+function importDND(file){
 
     const reader =
-    new FileReader();
+        new FileReader();
 
 
-    reader.onload =
-    () => {
+    reader.onload=
+        ()=>{
 
-        try {
+            try{
 
-            const imported =
-            JSON.parse(
-                reader.result
-            );
+                const imported =
+                    JSON.parse(
+                        reader.result
+                    );
 
 
-            if (
-                imported.format !==
-                "DAILY_DND"
-            ) {
+                if(
+                    imported.format!==
+                    "DAILY_DND"
+                ){
 
-                throw new Error(
-                    "This file is not a valid Daily .dnd file."
+                    throw new Error(
+                        "This is not a Daily .dnd file."
+                    );
+
+                }
+
+
+                if(
+                    !imported.data
+                ){
+
+                    throw new Error(
+                        "The .dnd file contains no Daily data."
+                    );
+
+                }
+
+
+                data =
+                    imported.data;
+
+
+                saveData();
+
+                applyAccent();
+
+                renderHistory();
+
+                renderCalendar();
+
+                updateRerolls();
+
+
+                const today =
+                    data.journeys[
+                        todayKey()
+                    ];
+
+
+                if(today)
+                    renderJourney(
+                        today
+                    );
+
+
+                $("status")
+                    .className=
+                    "status success";
+
+
+                $("status")
+                    .textContent=
+                    "Daily data imported successfully.";
+
+            }catch(error){
+
+                dailyError(
+                    "DND_IMPORT_FAILED",
+                    error.message
                 );
 
             }
 
-
-            if (
-                !imported.data
-            ) {
-
-                throw new Error(
-                    "The .dnd file does not contain Daily data."
-                );
-
-            }
-
-
-            dailyData =
-            imported.data;
-
-
-            saveData();
-
-
-            applyAccentColor();
-
-
-            renderHistory();
-
-            renderCalendar();
-
-
-            const today =
-            dailyData.journeys[
-                todayKey()
-            ];
-
-
-            if (today)
-                renderJourney(today);
-
-
-            updateRerollCounter();
-
-
-            $("status")
-                .className =
-                "status success";
-
-
-            $("status")
-                .textContent =
-                "Daily data imported successfully.";
-
-        }
-
-
-        catch(error) {
-
-            showError(
-                "DND_IMPORT_FAILED",
-                error.message
-            );
-
-        }
-
-    };
+        };
 
 
     reader.readAsText(
@@ -3161,12 +3193,12 @@ function importDND(
    SETTINGS
 ========================================================= */
 
-function applyAccentColor() {
+function applyAccent(){
 
     const color =
-    dailyData.settings
-        ?.accent ||
-    "#2684ff";
+        data.settings
+            ?.accent ||
+        "#2684ff";
 
 
     document.documentElement
@@ -3178,107 +3210,92 @@ function applyAccentColor() {
 
 
     $("accentColor")
-        .value =
+        .value=
         color;
 
 }
 
 
 $("settingsButton")
-.onclick =
-() => {
-
-    $("settingsModal")
-        .classList
-        .add("open");
-
-};
+    .onclick=
+    ()=>{
+        $("settingsModal")
+            .classList
+            .add("open");
+    };
 
 
 $("closeSettings")
-.onclick =
-() => {
-
-    $("settingsModal")
-        .classList
-        .remove("open");
-
-};
+    .onclick=
+    ()=>{
+        $("settingsModal")
+            .classList
+            .remove("open");
+    };
 
 
 $("accentColor")
-.oninput =
-event => {
+    .oninput=
+    event=>{
 
-    dailyData.settings.accent =
-    event.target.value;
+        data.settings.accent =
+            event.target.value;
 
-    saveData();
+        saveData();
 
-    applyAccentColor();
+        applyAccent();
 
-};
+    };
 
 
 $("exportButton")
-.onclick =
-exportDND;
+    .onclick=
+    exportDND;
 
 
 $("importButton")
-.onclick =
-() => {
-
-    $("importFile")
-        .click();
-
-};
+    .onclick=
+    ()=>{
+        $("importFile")
+            .click();
+    };
 
 
 $("importFile")
-.onchange =
-event => {
+    .onchange=
+    event=>{
 
-    const file =
-    event.target.files[0];
+        const file =
+            event.target.files[0];
 
-    if (file)
-        importDND(file);
+        if(file)
+            importDND(file);
 
-};
+    };
 
 
 $("clearDataButton")
-.onclick =
-() => {
+    .onclick=
+    ()=>{
 
-    const confirmed =
-    confirm(
-        "Reset ALL Daily data?\n\n" +
-        "This deletes your Daily journeys, " +
-        "ratings, history, rerolls and settings " +
-        "from this browser.\n\n" +
-        "It does NOT delete anything from Spotify."
-    );
+        if(
+            !confirm(
+                "Reset ALL Daily data?"
+            )
+        )
+            return;
 
 
-    if (!confirmed)
-        return;
+        data =
+            defaultData();
 
 
-    dailyData =
-    defaultData();
+        saveData();
 
 
-    saveData();
+        location.reload();
 
-
-    applyAccentColor();
-
-
-    location.reload();
-
-};
+    };
 
 
 /* =========================================================
@@ -3286,114 +3303,99 @@ $("clearDataButton")
 ========================================================= */
 
 $("spotifyButton")
-.onclick =
-() => {
+    .onclick=
+    ()=>{
 
-    if (
-        accessToken
-    ) {
+        if(accessToken){
 
-        window.open(
-            "https://open.spotify.com/",
-            "_blank",
-            "noopener,noreferrer"
-        );
+            window.open(
+                "https://open.spotify.com/",
+                "_blank",
+                "noopener,noreferrer"
+            );
 
-    }
+        }else{
 
-    else {
+            loginSpotify();
 
-        loginSpotify();
+        }
 
-    }
-
-};
+    };
 
 
 $("generateButton")
-.onclick =
-() => {
-
-    generateDaily(
-        false
-    );
-
-};
+    .onclick=
+    ()=>{
+        generateDaily(false);
+    };
 
 
 $("rerollButton")
-.onclick =
-() => {
-
-    rerollDaily();
-
-};
+    .onclick=
+    ()=>{
+        reroll();
+    };
 
 
 $("resetTodayButton")
-.onclick =
-() => {
-
-    resetToday();
-
-};
+    .onclick=
+    ()=>{
+        resetToday();
+    };
 
 
 $("previousMonth")
-.onclick =
-() => {
+    .onclick=
+    ()=>{
 
-    calendarDate.setMonth(
-        calendarDate.getMonth() - 1
-    );
+        calendarDate
+            .setMonth(
+                calendarDate.getMonth()-1
+            );
 
-    renderCalendar();
+        renderCalendar();
 
-};
+    };
 
 
 $("nextMonth")
-.onclick =
-() => {
+    .onclick=
+    ()=>{
 
-    calendarDate.setMonth(
-        calendarDate.getMonth() + 1
-    );
+        calendarDate
+            .setMonth(
+                calendarDate.getMonth()+1
+            );
 
-    renderCalendar();
+        renderCalendar();
 
-};
+    };
 
 
 /* =========================================================
    INITIALIZATION
 ========================================================= */
 
-async function initializeDaily() {
+async function init(){
 
-    applyAccentColor();
+    applyAccent();
 
-    updateRerollCounter();
+    updateRerolls();
 
     renderCalendar();
 
     renderHistory();
 
 
-    await handleSpotifyCallback();
+    await handleCallback();
 
 
-    if (!accessToken) {
-
-        $("spotifyButton")
-            .textContent =
-            "Connect Spotify";
+    if(!accessToken){
 
         $("albumGrid")
-            .innerHTML = `
+            .innerHTML=`
                 <div class="empty">
-                    Connect your Spotify account
-                    to start your Daily.
+                    Connect Spotify to start discovering albums.
                 </div>
             `;
 
@@ -3402,28 +3404,28 @@ async function initializeDaily() {
     }
 
 
-    try {
+    try{
 
         const profile =
-        await spotifyAPI(
-            "/me"
-        );
+            await spotifyAPI(
+                "/me"
+            );
 
 
         $("spotifyButton")
-            .textContent =
+            .textContent=
             profile.display_name ||
             profile.id ||
             "Spotify";
 
 
         $("status")
-            .className =
+            .className=
             "status success";
 
 
         $("status")
-            .textContent =
+            .textContent=
             `Spotify connected as ${
                 profile.display_name ||
                 profile.id
@@ -3431,43 +3433,40 @@ async function initializeDaily() {
 
 
         const today =
-        dailyData.journeys[
-            todayKey()
-        ];
+            data.journeys[
+                todayKey()
+            ];
 
 
-        if (today) {
+        if(today){
 
             renderJourney(
                 today
             );
 
-        }
-
-        else {
+        }else{
 
             $("albumGrid")
-                .innerHTML = `
+                .innerHTML=`
                     <div class="empty">
                         Click
-                        "Get Today's Daily"
+                        <strong>
+                            Get Today's Daily
+                        </strong>
                         to discover three albums.
                     </div>
                 `;
 
         }
 
-    }
+    }catch(error){
 
-
-    catch(error) {
-
-        showError(
+        dailyError(
             error.dailyCode ||
             "SPOTIFY_ACCOUNT_LOAD_FAILED",
 
             error.message ||
-            "Daily couldn't load your Spotify account.",
+            "Daily could not load your Spotify account.",
 
             error.status
             ? error
@@ -3479,7 +3478,7 @@ async function initializeDaily() {
 }
 
 
-initializeDaily();
+init();
 
 </script>
 
